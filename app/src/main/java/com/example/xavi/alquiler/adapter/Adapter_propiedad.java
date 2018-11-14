@@ -20,9 +20,9 @@ public class Adapter_propiedad extends BaseAdapter {
 
     private JSONArray array;
     private Context contexto;
-    private JSONObject obj_us ;
+    private JSONObject obj_us;
 
-    public Adapter_propiedad(Context contexto, JSONArray lista , JSONObject obj) {
+    public Adapter_propiedad(Context contexto, JSONArray lista, JSONObject obj) {
         this.contexto = contexto;
         this.array = lista;
         this.obj_us = obj;
@@ -44,7 +44,8 @@ public class Adapter_propiedad extends BaseAdapter {
     }
 
     @Override
-    public long getItemId(int i) { return 0;
+    public long getItemId(int i) {
+        return 0;
     }
 
     @Override
@@ -63,9 +64,9 @@ public class Adapter_propiedad extends BaseAdapter {
                     Intent intent = new Intent(contexto, Datos_basicosActivity.class);
                     try {
                         JSONObject og = new JSONObject();
-                        og.put("obj_us",obj_us);
+                        og.put("obj_us", obj_us);
                         og.put("obj_nombre", obj.getString("nombre"));
-                        intent.putExtra("inten_propiedad",og.toString());
+                        intent.putExtra("inten_propiedad", og.toString());
                         contexto.startActivity(intent);
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -78,7 +79,6 @@ public class Adapter_propiedad extends BaseAdapter {
         }
         return view;
     }
-
 
 
 }

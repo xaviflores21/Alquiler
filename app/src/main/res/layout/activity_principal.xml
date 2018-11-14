@@ -38,73 +38,71 @@
                     android:textSize="35dp"
                     android:textStyle="bold"
                     android:fontFamily="sans-serif-condensed"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:text="SERVICASAS"/>
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/email_login_form"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18dp"
+                    android:text="Casas"/>
 
                 <Spinner
                     android:id="@+id/spn1"
                     android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:prompt="@string/spn_casa" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/casa"
-                    android:layout_marginTop="10dip"
-                    android:prompt="@string/spn_casa"
-                     />
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp">
-
-                    <TextView
-                        android:id="@+id/text_casa"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dip" />
-
-                </android.support.design.widget.TextInputLayout>
+                    android:layout_marginTop="10dp"
+                    android:textSize="18dp"
+                    android:text="Venta"/>
 
                 <Spinner
                     android:id="@+id/spn2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/alquiler"
-                    android:layout_marginTop="10dip"
-                    android:prompt="@string/spn_alquiler" />
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp">
-
-                    <TextView
-                        android:id="@+id/text_alquiler"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dip" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <Button
-                    android:id="@+id/btn_login"
-                    style="?android:textAppearanceSmall"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Buscar"
-                    android:textStyle="bold" />
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:prompt="@string/spn_venta" />
 
             </LinearLayout>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#03a9f4"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:text="Buscar"/>
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

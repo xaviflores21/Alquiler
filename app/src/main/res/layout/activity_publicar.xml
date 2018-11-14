@@ -19,44 +19,72 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingEnd="30dp"
-        android:paddingStart="30dp"
+        android:paddingEnd="25dp"
+        android:paddingStart="25dp"
         android:gravity="center">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tipo de operacion"
-            android:textColor="#000000"
-            android:textAlignment="center"
-            android:layout_marginBottom="100dp"
-            android:textSize="25dp"/>
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
 
-        <Button
-            android:id="@+id/btn_venta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:text="Venta"
-            android:textSize="18dp"/>
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:src="@mipmap/logocasa"
+                android:text="LogoCasa" />
 
-        <Button
-            android:id="@+id/btn_alquiler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:text="Alquiler"
-            android:textSize="18dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:text="TIPO DE OPERACIÓN"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btn_anticretico"
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Anticretico"
-            android:layout_marginBottom="30dp"
-            android:textSize="18dp"/>
+            android:padding="20dp"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/btn_venta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#03a9f4"
+                android:textColor="@color/colorWhite"
+                android:layout_marginBottom="30dp"
+                android:text="Venta"
+                android:textSize="18dp"/>
+
+            <Button
+                android:id="@+id/btn_alquiler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#03a9f4"
+                android:textColor="@color/colorWhite"
+                android:layout_marginBottom="30dp"
+                android:text="Alquiler"
+                android:textSize="18dp"/>
+
+            <Button
+                android:id="@+id/btn_anticretico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#03a9f4"
+                android:textColor="@color/colorWhite"
+                android:text="Anticretico"
+                android:layout_marginBottom="30dp"
+                android:textSize="18dp"/>
+        </LinearLayout>
 
 
 

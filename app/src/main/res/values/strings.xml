@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"></string>
+    <string name="app_name">ServiCasas SRL.</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
@@ -23,8 +23,8 @@
         <item>Habitacion</item>
         <item>Oficina</item>
     </string-array>
-    <string name="spn_alquiler">Seleccione un Items</string>
-    <string-array name="alquiler">
+    <string name="spn_venta">Seleccione un Items</string>
+    <string-array name="venta">
         <item>Venta</item>
         <item>Anticretico</item>
         <item>Alquiler</item>
