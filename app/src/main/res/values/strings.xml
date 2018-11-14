@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name"></string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="url_servlet_admin">http://192.168.1.109:8080/serviCasas-master/admin/adminController</string>
+    <string name="url_servlet_index">http://192.168.1.105:8080/movilesServisis/indexController</string>
+
+    <string name="spn_casa">Seleccione un Items</string>
+    <string-array name="casa">
+        <item>Casa</item>
+        <item>Departamento</item>
+        <item>Habitacion</item>
+        <item>Oficina</item>
+    </string-array>
+    <string name="spn_alquiler">Seleccione un Items</string>
+    <string-array name="alquiler">
+        <item>Venta</item>
+        <item>Anticretico</item>
+        <item>Alquiler</item>
+    </string-array>
+
+    <string name="spn_dormitorio">Seleccione un Items</string>
+    <string-array name="dormitorio">
+        <item>Dormitorios</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string name="spn_banho">Seleccione un Items</string>
+    <string-array name="banho">
+        <item>Baños</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+
+    <string name="title_activity_consultas">Consultas</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
