@@ -48,4 +48,5 @@
 
     <string name="title_activity_consultas">Consultas</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_splash_theme">SplashTheme</string>
 </resources>

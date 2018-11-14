@@ -52,8 +52,8 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class LoginActivity extends AppCompatActivity implements OnClickListener {
 
-    private Button btn_registrar , btn_login;
-    private EditText text_usuario , text_contraseña;
+    private Button btn_registrar, btn_login;
+    private EditText text_usuario, text_contraseña;
     private View mProgressView;
     private View mLoginFormView;
 
@@ -77,12 +77,12 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_login:
                 validate();
                 break;
             case R.id.btn_regitrar:
-                Intent inte = new Intent(LoginActivity.this,RegistroActivity.class);
+                Intent inte = new Intent(LoginActivity.this, RegistroActivity.class);
                 startActivity(inte);
                 break;
         }
@@ -93,19 +93,17 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         String usuario = text_usuario.getText().toString().trim();
         String contraseña = text_contraseña.getText().toString().trim();
 
-        if (usuario.isEmpty())
-        {
+        if (usuario.isEmpty()) {
             text_usuario.setError("Campo Obligatorio");
             validar = false;
         }
-        if (contraseña.isEmpty())
-        {
+        if (contraseña.isEmpty()) {
             text_contraseña.setError("Campo Obligatorio");
             validar = false;
         }
         if (validar) {
-            new Login(usuario,contraseña).execute();
-        }else {
+            new Login(usuario, contraseña).execute();
+        } else {
             return;
         }
     }
@@ -124,7 +122,9 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                 sb.append(Character.forDigit(a[i] & 0x0f, 16));
             }
             return sb.toString();
-        } catch (NoSuchAlgorithmException e) { e.printStackTrace(); }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -132,9 +132,9 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     private class Login extends AsyncTask<Void, String, String> {
 
         private ProgressDialog progreso;
-        private String  usuario ,  contraseña ;
+        private String usuario, contraseña;
 
-        public Login( String usuario , String comtraseña) {
+        public Login(String usuario, String comtraseña) {
             this.usuario = usuario;
             this.contraseña = comtraseña;
         }
@@ -152,10 +152,10 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         @Override
         protected String doInBackground(Void... params) {
 
-            Hashtable<String,String> param = new Hashtable<>();
-            param.put("evento","login");
-            param.put("TokenAcceso","servi12sis3");
-            param.put("usuario",usuario);
+            Hashtable<String, String> param = new Hashtable<>();
+            param.put("evento", "login");
+            param.put("TokenAcceso", "servi12sis3");
+            param.put("usuario", usuario);
             param.put("pass", md5(contraseña));
             String respuesta = HttpConnection.sendRequest(new StandarRequestConfiguration(getString(R.string.url_servlet_admin), MethodType.POST, param));
             return respuesta;
@@ -165,16 +165,16 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         protected void onPostExecute(String usr) {
             super.onPostExecute(usr);
             progreso.dismiss();
-            if(usr==null){
-                Toast.makeText(LoginActivity.this,"Error al conectarse con el servidor.",Toast.LENGTH_SHORT).show();
-            }else{
+            if (usr == null) {
+                Toast.makeText(LoginActivity.this, "Error al conectarse con el servidor.", Toast.LENGTH_SHORT).show();
+            } else {
                 JSONObject obj = null;
                 try {
                     obj = new JSONObject(usr);
                     if (obj.getInt("estado") != 1) {
-                        Toast.makeText(LoginActivity.this,obj.getString("mensaje") ,Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(LoginActivity.this,obj.getString("mensaje") ,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(LoginActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

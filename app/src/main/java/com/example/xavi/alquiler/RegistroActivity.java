@@ -54,8 +54,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case R.id.btn_registro:
                 validate();
                 break;
@@ -72,71 +71,65 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         String contraseña = text_contraseña.getText().toString().trim();
         String carnet = text_carnet.getText().toString().trim();
 
-        if (nombre.isEmpty())
-        {
+        if (nombre.isEmpty()) {
             text_nombre.setError("Campo Obligatorio");
             validar = false;
         }
-        if (apellido.isEmpty())
-        {
+        if (apellido.isEmpty()) {
             text_apellidos.setError("Campo Obligatorio");
             validar = false;
         }
-        if (fecha.isEmpty())
-        {
+        if (fecha.isEmpty()) {
             text_fechaNacimiento.setError("Campo Obligatorio");
             validar = false;
         }
-        if (usuario.isEmpty())
-        {
+        if (usuario.isEmpty()) {
             text_usuario.setError("Campo Obligatorio");
             validar = false;
         }
-        if (contraseña.isEmpty())
-        {
+        if (contraseña.isEmpty()) {
             text_contraseña.setError("Campo Obligatorio");
             validar = false;
         }
-        if (carnet.isEmpty())
-        {
+        if (carnet.isEmpty()) {
             text_carnet.setError("Campo Obligatorio");
             validar = false;
         }
 
         if (validar) {
-            new Registrar(nombre,apellido,fecha,usuario,contraseña,carnet).execute();
-        }else {
+            new Registrar(nombre, apellido, fecha, usuario, contraseña, carnet).execute();
+        } else {
             return;
         }
     }
 
-    private void ShowDatapinckerDialog(){
+    private void ShowDatapinckerDialog() {
         final java.util.Calendar c = java.util.Calendar.getInstance();
-        c.set(Calendar.YEAR , 1900);
-        c.set(Calendar.MONTH , 0);
-        c.set(Calendar.DAY_OF_MONTH , 0);
+        c.set(Calendar.YEAR, 1900);
+        c.set(Calendar.MONTH, 0);
+        c.set(Calendar.DAY_OF_MONTH, 0);
         int año = c.get(java.util.Calendar.YEAR);
         int mes = c.get(java.util.Calendar.MONTH);
         int dia = c.get(Calendar.DAY_OF_MONTH);
         final DatePickerDialog datePickerDialog = new DatePickerDialog
-                (this ,new DatePickerDialog.OnDateSetListener() {
+                (this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         String fecha;
-                        if ((month+1)<10) {
-                            fecha = year + "-0" + (month+1);
-                        }else{
-                            fecha = year + "-" + (month+1);
+                        if ((month + 1) < 10) {
+                            fecha = year + "-0" + (month + 1);
+                        } else {
+                            fecha = year + "-" + (month + 1);
                         }
-                        if(dayOfMonth<10){
-                            fecha += "-0"+ dayOfMonth;
-                        }else{
+                        if (dayOfMonth < 10) {
+                            fecha += "-0" + dayOfMonth;
+                        } else {
                             fecha += "-" + dayOfMonth;
                         }
                         text_fechaNacimiento.setText(fecha);
                         text_fechaNacimiento.setError(null);
                     }
-                }, dia, mes , año);
+                }, dia, mes, año);
         datePickerDialog.show();
     }
 
@@ -154,7 +147,9 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 sb.append(Character.forDigit(a[i] & 0x0f, 16));
             }
             return sb.toString();
-        } catch (NoSuchAlgorithmException e) { e.printStackTrace(); }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -162,10 +157,10 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     private class Registrar extends AsyncTask<Void, String, String> {
 
         private ProgressDialog progreso;
-        private String  nombre , apellidos , fecha ,  usuario ,  contraseña , carnet;
+        private String nombre, apellidos, fecha, usuario, contraseña, carnet;
 
-        public Registrar( String nombre , String apellidos , String fecha ,String usuario , String comtraseña
-                , String carnet ) {
+        public Registrar(String nombre, String apellidos, String fecha, String usuario, String comtraseña
+                , String carnet) {
             this.nombre = nombre;
             this.apellidos = apellidos;
             this.fecha = fecha;
@@ -187,14 +182,14 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         @Override
         protected String doInBackground(Void... params) {
 
-            Hashtable<String,String> param = new Hashtable<>();
-            param.put("evento","registrar_usuario");
-            param.put("TokenAcceso","servi12sis3");
+            Hashtable<String, String> param = new Hashtable<>();
+            param.put("evento", "registrar_usuario");
+            param.put("TokenAcceso", "servi12sis3");
             param.put("nombre", nombre);
-            param.put("apellidos",apellidos);
-            param.put("fecha_nac",fecha);
+            param.put("apellidos", apellidos);
+            param.put("fecha_nac", fecha);
             param.put("ci", carnet);
-            param.put("usuario",usuario);
+            param.put("usuario", usuario);
             param.put("contrasena", md5(contraseña));
             String respuesta = HttpConnection.sendRequest(new StandarRequestConfiguration(getString(R.string.url_servlet_admin), MethodType.POST, param));
             return respuesta;
@@ -205,20 +200,20 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         protected void onPostExecute(String usr) {
             super.onPostExecute(usr);
             progreso.dismiss();
-            if(usr==null){
-                Toast.makeText(RegistroActivity.this,"Error al conectarse con el servidor.",Toast.LENGTH_SHORT).show();
-            }else{
+            if (usr == null) {
+                Toast.makeText(RegistroActivity.this, "Error al conectarse con el servidor.", Toast.LENGTH_SHORT).show();
+            } else {
                 JSONObject obj = null;
                 try {
                     obj = new JSONObject(usr);
-                if (obj.getInt("estado") != 1) {
-                    Toast.makeText(RegistroActivity.this,obj.getString("mensaje") ,Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(RegistroActivity.this,obj.getString("mensaje") ,Toast.LENGTH_SHORT).show();
-                    Intent inte = new Intent(RegistroActivity.this,LoginActivity.class);
-                    startActivity(inte);
-                    finish();
-                }
+                    if (obj.getInt("estado") != 1) {
+                        Toast.makeText(RegistroActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(RegistroActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                        Intent inte = new Intent(RegistroActivity.this, LoginActivity.class);
+                        startActivity(inte);
+                        finish();
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

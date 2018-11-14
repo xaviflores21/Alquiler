@@ -33,7 +33,7 @@ public class Datos_basicosActivity extends AppCompatActivity {
         btn_registro = findViewById(R.id.btn_registro);
 
         String d = getIntent().getStringExtra("inten_propiedad");
-        if(d.length()>0){
+        if (d.length() > 0) {
             try {
                 obj = new JSONObject(d);
             } catch (JSONException e) {
@@ -73,8 +73,7 @@ public class Datos_basicosActivity extends AppCompatActivity {
         btn_registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switch (view.getId())
-                {
+                switch (view.getId()) {
                     case R.id.btn_registro:
                         validate();
                         break;
@@ -92,38 +91,32 @@ public class Datos_basicosActivity extends AppCompatActivity {
         String metros_propiedad = text_metros_terreno.getText().toString().trim();
         String descripcion = text_descripcion.getText().toString().trim();
 
-        if (precio.isEmpty())
-        {
+        if (precio.isEmpty()) {
             text_precio.setError("Campo Obligatorio");
             validar = false;
         }
-        if (dormitorio.isEmpty())
-        {
+        if (dormitorio.isEmpty()) {
             textView_dormitorio.setError("Campo Obligatorio");
             validar = false;
         }
-        if (banho.isEmpty())
-        {
+        if (banho.isEmpty()) {
             textView_banho.setError("Campo Obligatorio");
             validar = false;
         }
-        if (metros_propiedad.isEmpty())
-        {
+        if (metros_propiedad.isEmpty()) {
             text_metros_terreno.setError("Campo Obligatorio");
             validar = false;
         }
-        if (descripcion.isEmpty())
-        {
+        if (descripcion.isEmpty()) {
             text_descripcion.setError("Campo Obligatorio");
             validar = false;
         }
         if (validar) {
             //new RegistroActivity.Registrar(nombre,apellido,fecha,usuario,contraseña,carnet).execute();
-        }else {
+        } else {
             return;
         }
     }
-
 
 
 }

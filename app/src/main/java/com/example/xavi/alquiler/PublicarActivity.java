@@ -65,11 +65,11 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
         JSONObject obj = new JSONObject();
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_venta:
                 try {
-                    Intent intent = new Intent(PublicarActivity.this,PropiedadActivity.class);
-                    obj.put("tipo",VENTA);
+                    Intent intent = new Intent(PublicarActivity.this, PropiedadActivity.class);
+                    obj.put("tipo", VENTA);
                     intent.putExtra("obj_tipo_operacion", obj.toString());
                     startActivity(intent);
                 } catch (JSONException e) {
@@ -78,8 +78,8 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.btn_alquiler:
                 try {
-                    Intent intent2 = new Intent(PublicarActivity.this,PropiedadActivity.class);
-                    obj.put("tipo",ALQUILER);
+                    Intent intent2 = new Intent(PublicarActivity.this, PropiedadActivity.class);
+                    obj.put("tipo", ALQUILER);
                     intent2.putExtra("obj_tipo_operacion", obj.toString());
                     startActivity(intent2);
                 } catch (JSONException e) {
@@ -88,8 +88,8 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.btn_anticretico:
                 try {
-                    Intent intent3 = new Intent(PublicarActivity.this,PropiedadActivity.class);
-                    obj.put("tipo",ANTICRETICO);
+                    Intent intent3 = new Intent(PublicarActivity.this, PropiedadActivity.class);
+                    obj.put("tipo", ANTICRETICO);
                     intent3.putExtra("obj_tipo_operacion", obj.toString());
                     startActivity(intent3);
                 } catch (JSONException e) {

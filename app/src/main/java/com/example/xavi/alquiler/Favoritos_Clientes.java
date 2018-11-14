@@ -18,8 +18,8 @@ public class Favoritos_Clientes extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favoritos_clientes);
 
-        container_frame = findViewById(R.id.container_frame);
-        btn_elegir_destino = findViewById(R.id.btn_elegir_destino);
+        //container_frame = findViewById(R.id.container_frame);
+        //btn_elegir_destino = findViewById(R.id.btn_elegir_destino);
         Toolbar toolbar = findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -37,6 +37,7 @@ public class Favoritos_Clientes extends AppCompatActivity implements View.OnClic
                 return super.onOptionsItemSelected(item);
         }
     }
+
     @Override
     public void onBackPressed() {
         finish();
@@ -45,9 +46,9 @@ public class Favoritos_Clientes extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_elegir_destino:
-                container_frame.setVisibility(View.GONE);
-                break;
+            //case R.id.btn_elegir_destino:
+            //   container_frame.setVisibility(View.GONE);
+            //  break;
         }
     }
 

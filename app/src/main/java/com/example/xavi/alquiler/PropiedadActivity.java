@@ -39,7 +39,7 @@ public class PropiedadActivity extends AppCompatActivity {
         lv = findViewById(R.id.list_propiedad);
 
         String d = getIntent().getStringExtra("obj_tipo_operacion");
-        if(d.length()>0){
+        if (d.length() > 0) {
             try {
                 obj = new JSONObject(d);
             } catch (JSONException e) {
@@ -75,6 +75,7 @@ public class PropiedadActivity extends AppCompatActivity {
     public class get_propiedades extends AsyncTask<Void, String, String> {
 
         private ProgressDialog progreso;
+
         get_propiedades() {
         }
 
@@ -92,7 +93,7 @@ public class PropiedadActivity extends AppCompatActivity {
         protected String doInBackground(Void... params) {
             Hashtable<String, String> parametros = new Hashtable<>();
             parametros.put("evento", "get_mis_propiedades");
-            String respuesta ="";
+            String respuesta = "";
             try {
                 respuesta = HttpConnection.sendRequest(new StandarRequestConfiguration(getString(R.string.url_servlet_index), MethodType.POST, parametros));
             } catch (Exception ex) {
@@ -105,18 +106,19 @@ public class PropiedadActivity extends AppCompatActivity {
         protected void onPostExecute(final String success) {
             super.onPostExecute(success);
             progreso.dismiss();
-            if (!success.isEmpty()){
+            if (!success.isEmpty()) {
                 try {
                     JSONArray jsonArray = new JSONArray(success);
-                    Adapter_propiedad adaptador_mis_viajes = new Adapter_propiedad(PropiedadActivity.this,jsonArray,obj);
+                    Adapter_propiedad adaptador_mis_viajes = new Adapter_propiedad(PropiedadActivity.this, jsonArray, obj);
                     lv.setAdapter(adaptador_mis_viajes);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            }else {
+            } else {
                 return;
             }
         }
+
         @Override
         protected void onProgressUpdate(String... values) {
             super.onProgressUpdate(values);
