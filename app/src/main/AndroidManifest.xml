@@ -29,6 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SubirFotos" />
         <activity android:name=".RegistroActivity" />
         <activity android:name=".MapsActivity" />
         <activity android:name=".Noticias" />
@@ -50,7 +51,8 @@
             android:label="@string/app_name" />
         <activity android:name=".PublicarActivity" />
         <activity android:name=".PropiedadActivity" />
-        <activity android:name=".Datos_basicosActivity"></activity>
+        <activity android:name=".Datos_basicosActivity" />
+
     </application>
 
 </manifest>
