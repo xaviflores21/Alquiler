@@ -76,7 +76,8 @@
                     android:background="#03a9f4"
                     android:text="Venta"
                     android:textColor="@color/colorWhite"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"
+                    android:onClick="onClick"/>
 
                 <Button
                     android:id="@+id/btn_alquiler"
@@ -86,7 +87,8 @@
                     android:background="#03a9f4"
                     android:text="Alquiler"
                     android:textColor="@color/colorWhite"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"
+                    android:onClick="onClick"/>
 
                 <Button
                     android:id="@+id/btn_anticretico"
@@ -96,7 +98,8 @@
                     android:background="#03a9f4"
                     android:text="Anticretico"
                     android:textColor="@color/colorWhite"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"
+                    android:onClick="onClick"/>
             </LinearLayout>
 
         </LinearLayout>

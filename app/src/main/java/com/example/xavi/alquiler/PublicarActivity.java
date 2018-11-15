@@ -68,7 +68,7 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
         switch (view.getId()) {
             case R.id.btn_venta:
                 try {
-                    Intent intent = new Intent(PublicarActivity.this, PropiedadActivity.class);
+                    Intent intent = new Intent(PublicarActivity.this, SubirFotos.class);
                     obj.put("tipo", VENTA);
                     intent.putExtra("obj_tipo_operacion", obj.toString());
                     startActivity(intent);

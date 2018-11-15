@@ -61,8 +61,8 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="10dp"
                     android:background="#03a9f4"
-                    android:text="Registrar"
                     android:textColor="#fff"
+                    android:text="Registrar"
                     android:textStyle="bold" />
 
 

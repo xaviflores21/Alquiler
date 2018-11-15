@@ -22,22 +22,27 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PublicarActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".PublicarActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Principal" />
         <activity android:name=".SubirFotos" />
-        <activity android:name=".RegistroActivity" />
+        <activity android:name=".RegistroActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Noticias" />
         <activity android:name=".Consultas" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".PropiedadActivity" />
-        <activity android:name=".Datos_basicosActivity" />
+        <activity android:name=".PropiedadActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Datos_basicosActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -53,7 +58,6 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-
     </application>
 
 </manifest>
