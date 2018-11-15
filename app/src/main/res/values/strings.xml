@@ -49,5 +49,12 @@
     <string name="title_activity_consultas">Consultas</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_splash_theme">SplashTheme</string>
-    <string name="logocasa" ></string>
+    <string name="logocasa"></string>
+
+    <string name="title_activity_navigation">Navigation</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+
 </resources>

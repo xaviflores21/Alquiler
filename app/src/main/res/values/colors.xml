@@ -3,7 +3,13 @@
     <color name="colorPrimaryDark">#FFC107</color>
     <color name="colorPrimary">#FFC107</color>
     <color name="colorAccent">#000</color>
+
     <color name="colorBlack">#000000</color>
     <color name="colorGris">#626262</color>
     <color name="colorWhite">#fff</color>
+
+    <color name="notification_color">#0288d1</color>
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#757575</color>
+    <color name="navfun">#FF6666</color>
 </resources>
