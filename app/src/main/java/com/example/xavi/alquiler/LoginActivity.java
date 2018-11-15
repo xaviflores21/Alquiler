@@ -29,6 +29,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,7 +53,8 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class LoginActivity extends AppCompatActivity implements OnClickListener {
 
-    private Button btn_registrar, btn_login;
+    private Button btn_login;
+    private TextView text_regitrar;
     private EditText text_usuario, text_contraseña;
     private View mProgressView;
     private View mLoginFormView;
@@ -63,9 +65,9 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         setContentView(R.layout.activity_login);
 
         btn_login = findViewById(R.id.btn_login);
-        btn_registrar = findViewById(R.id.btn_regitrar);
+        text_regitrar = findViewById(R.id.text_regitrar);
         btn_login.setOnClickListener(this);
-        btn_registrar.setOnClickListener(this);
+        text_regitrar.setOnClickListener(this);
 
         text_usuario = findViewById(R.id.text_usuario);
         text_contraseña = findViewById(R.id.text_contraseña);
@@ -81,7 +83,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             case R.id.btn_login:
                 validate();
                 break;
-            case R.id.btn_regitrar:
+            case R.id.text_regitrar:
                 Intent inte = new Intent(LoginActivity.this, RegistroActivity.class);
                 startActivity(inte);
                 break;

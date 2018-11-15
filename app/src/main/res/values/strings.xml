@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ServiCasas SRL.</string>
+    <string name="app_name">ServiCasas</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
@@ -49,4 +49,5 @@
     <string name="title_activity_consultas">Consultas</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_splash_theme">SplashTheme</string>
+    <string name="or" />
 </resources>
