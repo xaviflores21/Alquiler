@@ -7,14 +7,53 @@
     tools:context=".SubirFotos">
 
 
-    <GridView
-        android:id="@+id/grid"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:columnWidth="120dp"
-        android:horizontalSpacing="8dp"
-        android:numColumns="auto_fit"
-        android:padding="8dp"
-        android:verticalSpacing="8dp" />
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                app:navigationIcon="@drawable/baseline_keyboard_backspace_black_18dp"
+                app:title="Subir Imagen"
+                app:titleTextColor="@color/colorAccent"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="0dp"></android.support.v7.widget.Toolbar>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <GridView
+                    android:id="@+id/grid"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnWidth="120dp"
+                    android:horizontalSpacing="8dp"
+                    android:numColumns="auto_fit"
+                    android:padding="8dp"
+                    android:verticalSpacing="8dp" />
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
 
 </LinearLayout>

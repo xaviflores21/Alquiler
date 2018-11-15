@@ -11,7 +11,7 @@
         android:id="@+id/toolbar3"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@drawable/backgroundcolor2"
+        android:background="@color/colorPrimaryDark"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp">
     </android.support.v7.widget.Toolbar>
@@ -44,7 +44,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:paddingBottom="10dp"
-        android:background="@drawable/backgroundcolor2">
+        android:background="@color/colorPrimaryDark">
 
         <AutoCompleteTextView
             android:id="@+id/text_direccion_togo"

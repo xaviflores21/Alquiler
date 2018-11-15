@@ -16,7 +16,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // This method will be executed once the timer is over
-                Intent i = new Intent( SplashActivity.this, LoginActivity.class);
+                Intent i = new Intent( SplashActivity.this, SubirFotos.class);
                 startActivity(i);
                 finish();
             }
