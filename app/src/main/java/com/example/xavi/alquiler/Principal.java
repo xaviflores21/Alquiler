@@ -27,14 +27,16 @@ import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
 import java.util.Arrays;
 
-public class Principal extends AppCompatActivity implements TabLayout.OnTabSelectedListener, DrawerAdapter.OnItemSelectedListener{
+public class Principal extends AppCompatActivity implements TabLayout.OnTabSelectedListener, DrawerAdapter.OnItemSelectedListener {
 
     private SlidingRootNav slidingRootNav;
-    private static final int POS_DASHBOARD = 0;
-    private static final int POS_ACCOUNT = 1;
-    private static final int POS_MESSAGES = 2;
-    private static final int POS_CART = 3;
-    private static final int POS_LOGOUT = 5;
+    private static final int POS_BUSCAR = 0;
+    private static final int POS_PUBLICAR = 1;
+    private static final int POS_FAVORITOS = 2;
+    private static final int POS_CONSULTAS = 3;
+    private static final int POS_PUBLICACIONES = 4;
+    private static final int POS_PERFIL = 5;
+    private static final int POS_SALIR = 7;
 
     private String[] screenTitles;
     private Drawable[] screenIcons;
@@ -44,12 +46,10 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         //NAVIGATION
-
 
         slidingRootNav = new SlidingRootNavBuilder(this)
                 .withToolbarMenuToggle(toolbar)
@@ -63,12 +63,14 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
         screenTitles = loadScreenTitles();
 
         DrawerAdapter drawadapter = new DrawerAdapter(Arrays.asList(
-                createItemFor(POS_DASHBOARD).setChecked(true),
-                createItemFor(POS_ACCOUNT),
-                createItemFor(POS_MESSAGES),
-                createItemFor(POS_CART),
+                createItemFor(POS_BUSCAR).setChecked(true),
+                createItemFor(POS_PUBLICAR),
+                createItemFor(POS_FAVORITOS),
+                createItemFor(POS_CONSULTAS),
+                createItemFor(POS_PUBLICACIONES),
+                createItemFor(POS_PERFIL),
                 new SpaceItem(48),
-                createItemFor(POS_LOGOUT)));
+                createItemFor(POS_SALIR)));
         drawadapter.setListener(this);
 
         RecyclerView list = findViewById(R.id.list);
@@ -76,12 +78,9 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
         list.setLayoutManager(new LinearLayoutManager(this));
         list.setAdapter(drawadapter);
 
-        drawadapter.setSelected(POS_DASHBOARD);
-
+        drawadapter.setSelected(POS_BUSCAR);
 
         //BUTTON
-
-
 
         Spinner spin1 = findViewById(R.id.spn1);
         Spinner spin2 = findViewById(R.id.spn2);
@@ -113,31 +112,34 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
 
     @Override
     public void onItemSelected(int position) {
-        if (position == POS_LOGOUT) {
+        if (position == POS_SALIR) {
             finish();
         }
-        if (position == POS_ACCOUNT) {
-            //     Intent i =new Intent(getApplication(), About.class);
-            //    startActivity(i);
+        if (position == POS_PUBLICAR) {
+            Intent i = new Intent(getApplication(), PublicarActivity.class);
+            startActivity(i);
         }
-
-        if (position == POS_CART) {
+        if (position == POS_FAVORITOS) {
+            Intent i = new Intent(getApplication(), Favoritos_Clientes.class);
+            startActivity(i);
+        }
+        if (position == POS_CONSULTAS) {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, " Click to download Colors Soda app from wwww. ");
+            sendIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "G E E N  B O X");
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
+        }
+        if (position == POS_PUBLICACIONES) {
             //   Intent i =new Intent(getApplication(), AdvertiseUs.class);
             //  startActivity(i);
         }
-
-        if (position == POS_MESSAGES) {
-            Intent sendIntent = new Intent();
-            sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT," Click to download Colors Soda app from wwww. ");
-            sendIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,"G E E N  B O X");
-            sendIntent.setType("text/plain");
-            startActivity(sendIntent);
-
+        if (position == POS_PERFIL) {
+            //   Intent i =new Intent(getApplication(), AdvertiseUs.class);
+            //  startActivity(i);
         }
         slidingRootNav.closeMenu();
-        // Fragment selectedScreen = CenteredTextFragment.createFor(screenTitles[position]);
-        // showFragment(selectedScreen);
     }
 
     private DrawerItem createItemFor(int position) {

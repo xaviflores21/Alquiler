@@ -1,79 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Favoritos_Clientes">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar3"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/colorPrimaryDark"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp">
-    </android.support.v7.widget.Toolbar>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapviewPedirSiete"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-        <ImageView
-            android:id="@+id/ivmarker"
-               android:layout_width="match_parent"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/asetmar" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="visible">
+        android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:paddingBottom="10dp"
-        android:background="@color/colorPrimaryDark">
-
-        <AutoCompleteTextView
-            android:id="@+id/text_direccion_togo"
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:paddingLeft="10dp"
-            android:hint="¿A dónde vamos?"
-            android:background="@drawable/ic_button_border_gris"
-            android:drawableStart="@drawable/ic_map_marker"
-            android:inputType="text"
-            android:textSize="15sp"
-            android:padding="5dp"/>
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Favoritos"
-            android:textSize="30dp"
-            android:layout_marginTop="10dp"
-            android:textAlignment="center"
-            android:textColor="#fff"/>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                app:navigationIcon="@drawable/baseline_reorder_black_24dp"
+                app:title="Buscar"
+                app:titleTextColor="@color/colorNegro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="0dp">
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <include layout="@layout/content_favoritos_clientes" />
 
     </LinearLayout>
 
-
-        </LinearLayout>
-
-    </FrameLayout>
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

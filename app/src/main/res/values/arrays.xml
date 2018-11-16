@@ -2,22 +2,26 @@
 <resources>
 
     <string-array name="ld_activityScreenTitles">
-        <item>Home</item>
-        <item>About</item>
-        <item>Share</item>
-        <item>Reach Us</item>
+        <item>Buscar</item>
+        <item>Publicar</item>
+        <item>Favoritos</item>
+        <item>Consultas</item>
+        <item>Mis Publicaciones</item>
+        <item>Perfil</item>
 
         <item />
-        <item>Exit</item>
+        <item>Cerrar Sesion</item>
     </string-array>
 
     <array name="ld_activityScreenIcons">
-        <item>@drawable/ic_home</item>
-        <item>@drawable/ic_home</item>
-        <item>@drawable/ic_home</item>
-        <item>@drawable/ic_home</item>
+        <item>@drawable/busqueda</item>
+        <item>@drawable/add</item>
+        <item>@drawable/favoritos</item>
+        <item>@drawable/colaborated</item>
+        <item>@drawable/publicaciones</item>
+        <item>@drawable/users</item>
         <item>0</item>
-        <item>@drawable/ic_home</item>
+        <item>@drawable/exit</item>
     </array>
 
 </resources>
