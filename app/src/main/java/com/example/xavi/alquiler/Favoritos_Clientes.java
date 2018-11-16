@@ -32,10 +32,11 @@ public class Favoritos_Clientes extends AppCompatActivity implements View.OnClic
     private static final int POS_BUSCAR = 0;
     private static final int POS_PUBLICAR = 1;
     private static final int POS_FAVORITOS = 2;
-    private static final int POS_CONSULTAS = 3;
-    private static final int POS_PUBLICACIONES = 4;
-    private static final int POS_PERFIL = 5;
-    private static final int POS_SALIR = 7;
+    private static final int POS_COMPARTIR = 3;
+    private static final int POS_CONSULTAS = 4;
+    private static final int POS_PUBLICACIONES = 5;
+    private static final int POS_PERFIL = 6;
+    private static final int POS_SALIR = 8;
 
     private String[] screenTitles;
     private Drawable[] screenIcons;
@@ -69,6 +70,7 @@ public class Favoritos_Clientes extends AppCompatActivity implements View.OnClic
                 createItemFor(POS_BUSCAR).setChecked(true),
                 createItemFor(POS_PUBLICAR),
                 createItemFor(POS_FAVORITOS),
+                createItemFor(POS_COMPARTIR),
                 createItemFor(POS_CONSULTAS),
                 createItemFor(POS_PUBLICACIONES),
                 createItemFor(POS_PERFIL),
@@ -132,13 +134,17 @@ public class Favoritos_Clientes extends AppCompatActivity implements View.OnClic
             Intent i = new Intent(getApplication(), PublicarActivity.class);
             startActivity(i);
         }
-        if (position == POS_CONSULTAS) {
+        if (position == POS_COMPARTIR) {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, " Click to download Colors Soda app from wwww. ");
-            sendIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "G E E N  B O X");
+            sendIntent.putExtra(Intent.EXTRA_TEXT, " Click para descargar la App ServiCasas de wwww.servicasas.com.bo ");
+            sendIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "S E R V I C A S A S");
             sendIntent.setType("text/plain");
             startActivity(sendIntent);
+        }
+        if (position == POS_CONSULTAS) {
+            //   Intent i =new Intent(getApplication(), AdvertiseUs.class);
+            //  startActivity(i);
         }
         if (position == POS_PUBLICACIONES) {
             //   Intent i =new Intent(getApplication(), AdvertiseUs.class);
