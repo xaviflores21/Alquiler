@@ -21,9 +21,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
-                app:navigationIcon="@drawable/baseline_reorder_black_24dp"
                 app:title="Publicar"
-                app:titleTextColor="@color/colorNegro"
+                app:titleTextColor="#000"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="0dp">
 
@@ -31,7 +30,11 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/content_homepage" />
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
     </LinearLayout>
 

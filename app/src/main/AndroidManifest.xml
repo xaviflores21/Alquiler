@@ -33,33 +33,22 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".PublicarActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".Principal"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity android:name=".SubirFotos" />
-
         <activity
             android:name=".RegistroActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".Noticias" />
-
-        <activity android:name=".Consultas" />
-
         <activity
             android:name=".PropiedadActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".Datos_basicosActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".Favoritos_Clientes"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -69,7 +58,7 @@
              Note that the API key is linked to the encryption key used to sign the APK.
              You need a different API key for each encryption key, including the release key that is used to
              sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -78,6 +67,9 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
+        <activity android:name=".ExploreActivity" />
+        <activity android:name=".ComentarioActivity" />
+        <activity android:name=".BuscarActivity"></activity>
     </application>
 
 </manifest>

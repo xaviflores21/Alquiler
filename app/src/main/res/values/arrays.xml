@@ -5,7 +5,7 @@
         <item>Buscar</item>
         <item>Publicar</item>
         <item>Favoritos</item>
-        <item>Compartir</item>
+        <item>Novedades</item>
         <item>Consultas</item>
         <item>Mis Publicaciones</item>
         <item>Perfil</item>
@@ -18,7 +18,7 @@
         <item>@drawable/busqueda</item>
         <item>@drawable/add</item>
         <item>@drawable/favoritos</item>
-        <item>@drawable/compartir</item>
+        <item>@drawable/noticias</item>
         <item>@drawable/colaborated</item>
         <item>@drawable/publicaciones</item>
         <item>@drawable/users</item>

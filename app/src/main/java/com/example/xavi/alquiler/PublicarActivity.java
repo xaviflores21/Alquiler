@@ -1,45 +1,19 @@
 package com.example.xavi.alquiler;
 
-import android.content.Intent;
-import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.xavi.alquiler.Menu.DrawerAdapter;
-import com.example.xavi.alquiler.Menu.DrawerItem;
-import com.example.xavi.alquiler.Menu.SimpleItem;
-import com.example.xavi.alquiler.Menu.SpaceItem;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
-import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.util.Arrays;
-
-public class PublicarActivity extends AppCompatActivity implements View.OnClickListener, TabLayout.OnTabSelectedListener, DrawerAdapter.OnItemSelectedListener {
+public class PublicarActivity extends Fragment implements View.OnClickListener {
 
     private SlidingRootNav slidingRootNav;
-    private static final int POS_BUSCAR = 0;
-    private static final int POS_PUBLICAR = 1;
-    private static final int POS_FAVORITOS = 2;
-    private static final int POS_COMPARTIR = 3;
-    private static final int POS_CONSULTAS = 4;
-    private static final int POS_PUBLICACIONES = 5;
-    private static final int POS_PERFIL = 6;
-    private static final int POS_SALIR = 8;
-
     private String[] screenTitles;
     private Drawable[] screenIcons;
 
@@ -52,16 +26,12 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
     private Button btn_anticretico;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_publicar);
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_publicar, container, false);
 
         //NAVIGATION
 
-        slidingRootNav = new SlidingRootNavBuilder(this)
+       /* slidingRootNav = new SlidingRootNavBuilder(this)
                 .withToolbarMenuToggle(toolbar)
                 .withMenuOpened(false)
                 .withContentClickableWhenMenuOpened(true)
@@ -73,15 +43,15 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
         screenTitles = loadScreenTitles();
 
         DrawerAdapter drawadapter = new DrawerAdapter(Arrays.asList(
-                createItemFor(POS_BUSCAR).setChecked(true),
-                createItemFor(POS_PUBLICAR),
-                createItemFor(POS_FAVORITOS),
-                createItemFor(POS_COMPARTIR),
-                createItemFor(POS_CONSULTAS),
-                createItemFor(POS_PUBLICACIONES),
-                createItemFor(POS_PERFIL),
+                createItemFor(Constant.POS_BUSCAR).setChecked(true),
+                createItemFor(Constant.POS_PUBLICAR),
+                createItemFor(Constant.POS_FAVORITOS),
+                createItemFor(Constant.POS_COMPARTIR),
+                createItemFor(Constant.POS_CONSULTAS),
+                createItemFor(Constant.POS_PUBLICACIONES),
+                createItemFor(Constant.POS_PERFIL),
                 new SpaceItem(48),
-                createItemFor(POS_SALIR)));
+                createItemFor(Constant.POS_SALIR)));
         drawadapter.setListener(this);
 
         RecyclerView list = findViewById(R.id.list);
@@ -89,46 +59,28 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
         list.setLayoutManager(new LinearLayoutManager(this));
         list.setAdapter(drawadapter);
 
-        drawadapter.setSelected(POS_PUBLICAR);
+        drawadapter.setSelected(Constant.POS_PUBLICAR);*/
 
-/*
-        Toolbar toolbar = findViewById(R.id.toolbar3);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        btn_venta = findViewById(R.id.btn_venta);
-        btn_alquiler = findViewById(R.id.btn_alquiler);
-        btn_anticretico = findViewById(R.id.btn_anticretico);
+        btn_venta = view.findViewById(R.id.btn_venta);
+        btn_alquiler = view.findViewById(R.id.btn_alquiler);
+        btn_anticretico = view.findViewById(R.id.btn_anticretico);
 
         btn_venta.setOnClickListener(this);
         btn_alquiler.setOnClickListener(this);
-        btn_anticretico.setOnClickListener(this);*/
+        btn_anticretico.setOnClickListener(this);
+
+        return view;
 
     }
 
-    // Opcion para ir atras sin reiniciar el la actividad anterior de nuevo
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+    public void onClick(View view) {
+
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
 
-    @Override
-    public void onBackPressed() {
-        finish();
-    }
-
-    @Override
+    /*@Override
     public void onClick(View view) {
         JSONObject obj = new JSONObject();
         switch (view.getId()) {
@@ -183,18 +135,18 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onItemSelected(int position) {
-        if (position == POS_SALIR) {
+        if (position == Constant.POS_SALIR) {
             finish();
         }
-        if (position == POS_BUSCAR) {
+        if (position == Constant.POS_BUSCAR) {
             Intent i = new Intent(getApplication(), Principal.class);
             startActivity(i);
         }
-        if (position == POS_FAVORITOS) {
+        if (position == Constant.POS_FAVORITOS) {
             Intent i = new Intent(getApplication(), Favoritos_Clientes.class);
             startActivity(i);
         }
-        if (position == POS_COMPARTIR) {
+        if (position == Constant.POS_COMPARTIR) {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
             sendIntent.putExtra(Intent.EXTRA_TEXT, " Click para descargar la App ServiCasas de wwww.servicasas.com.bo ");
@@ -202,15 +154,15 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
             sendIntent.setType("text/plain");
             startActivity(sendIntent);
         }
-        if (position == POS_CONSULTAS) {
+        if (position == Constant.POS_CONSULTAS) {
             //   Intent i =new Intent(getApplication(), AdvertiseUs.class);
             //  startActivity(i);
         }
-        if (position == POS_PUBLICACIONES) {
+        if (position == Constant.POS_PUBLICACIONES) {
             //   Intent i =new Intent(getApplication(), AdvertiseUs.class);
             //  startActivity(i);
         }
-        if (position == POS_PERFIL) {
+        if (position == Constant.POS_PERFIL) {
             //   Intent i =new Intent(getApplication(), AdvertiseUs.class);
             //  startActivity(i);
         }
@@ -245,6 +197,6 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
     @ColorInt
     private int color(@ColorRes int res) {
         return ContextCompat.getColor(this, res);
-    }
+    }*/
 
 }
