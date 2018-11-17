@@ -96,24 +96,24 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_publicar).commit();
         }
         if (position == Constant.POS_FAVORITOS) {
-            fragment_favoritos = new PublicarActivity();
+            fragment_favoritos = new Favoritos_Clientes();
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_favoritos).commit();
         }
         if (position == Constant.POS_NOVEDADES) {
-            fragment_novedades = new PublicarActivity();
+            fragment_novedades = new ExploreActivity();
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_novedades).commit();
         }
         if (position == Constant.POS_CONSULTAS) {
-            fragment_consultar = new PublicarActivity();
+            fragment_consultar = new ComentarioActivity();
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_consultar).commit();
         }
         if (position == Constant.POS_PUBLICACIONES) {
-            fragment_publicaciones = new PublicarActivity();
-            getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_publicaciones).commit();
+            //fragment_publicaciones = new PublicarActivity();
+            //getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_publicaciones).commit();
         }
         if (position == Constant.POS_PERFIL) {
-            fragment_perfil = new PublicarActivity();
-            getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_perfil).commit();
+            //fragment_perfil = new PublicarActivity();
+            //getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_perfil).commit();
         }
         if (position == Constant.POS_SALIR) {
             finish();
