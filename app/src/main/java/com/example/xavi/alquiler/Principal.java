@@ -1,7 +1,6 @@
 package com.example.xavi.alquiler;
 
 import android.support.v4.app.Fragment;
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
@@ -79,7 +78,7 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
         list.setAdapter(drawadapter);
         drawadapter.setSelected(Constant.POS_BUSCAR);
 
-        fragment_buscar = new BuscarActivity();
+        fragment_buscar = new BuscarFrament();
         getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_buscar).commit();
 
     }
@@ -89,7 +88,7 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
     public void onItemSelected(int position) {
 
         if (position == Constant.POS_BUSCAR) {
-            fragment_buscar = new BuscarActivity();
+            fragment_buscar = new BuscarFrament();
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_buscar).commit();
         }
         if (position == Constant.POS_PUBLICAR) {

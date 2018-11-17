@@ -9,13 +9,13 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 
-public class BuscarActivity extends Fragment {
+public class BuscarFrament extends Fragment {
 
     private Button btn_buscar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_buscar, container, false);
+        View view = inflater.inflate(R.layout.frament_buscar, container, false);
 
         Spinner spin1 = view.findViewById(R.id.spn1);
         Spinner spin2 = view.findViewById(R.id.spn2);

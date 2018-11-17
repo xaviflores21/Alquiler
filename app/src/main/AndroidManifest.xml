@@ -69,7 +69,7 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".ExploreActivity" />
         <activity android:name=".ComentarioActivity" />
-        <activity android:name=".BuscarActivity"></activity>
+        <activity android:name=".BuscarFrament"></activity>
     </application>
 
 </manifest>

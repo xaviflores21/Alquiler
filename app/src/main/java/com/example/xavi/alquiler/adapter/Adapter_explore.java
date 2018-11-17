@@ -14,7 +14,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 
 public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyViewHolder> {
 
