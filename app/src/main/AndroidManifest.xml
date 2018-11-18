@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.xavi.alquiler">
+    package="com.xavi.alquiler">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name="com.xavi.alquiler.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,26 +31,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name="com.xavi.alquiler.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".PublicarActivity"
+            android:name="com.xavi.alquiler.PublicarActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Principal"
+            android:name="com.xavi.alquiler.Principal"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SubirFotos" />
+        <activity android:name="com.xavi.alquiler.SubirFotos" />
         <activity
-            android:name=".RegistroActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".PropiedadActivity"
+            android:name="com.xavi.alquiler.RegistroActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Datos_basicosActivity"
+            android:name="com.xavi.alquiler.PropiedadActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Favoritos"
+            android:name="com.xavi.alquiler.Datos_basicosActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.xavi.alquiler.Favoritos"
             android:theme="@style/AppTheme.NoActionBar" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -65,12 +65,12 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name="com.xavi.alquiler.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".ExploreActivity" />
-        <activity android:name=".ComentarioActivity" />
-        <activity android:name=".BuscarFrament" />
-        <activity android:name=".RegistroBusquedaActivity"></activity>
+        <activity android:name="com.xavi.alquiler.ExploreActivity" />
+        <activity android:name="com.xavi.alquiler.ComentarioActivity" />
+        <activity android:name="com.xavi.alquiler.BuscarFrament" />
+        <activity android:name="com.xavi.alquiler.RegistroBusquedaActivity"></activity>
     </application>
 
 </manifest>

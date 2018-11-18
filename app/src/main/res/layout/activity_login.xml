@@ -6,7 +6,7 @@
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
     android:padding="15dp"
-    tools:context=".LoginActivity">
+    tools:context="com.xavi.alquiler.LoginActivity">
 
     <ScrollView
         android:id="@+id/login_form"
