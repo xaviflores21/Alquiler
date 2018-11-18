@@ -1,5 +1,6 @@
 package com.xavi.alquiler;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -7,72 +8,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 
-import com.xavi.alquiler.R;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 
 
 public class PublicarActivity extends Fragment implements View.OnClickListener {
 
-    private SlidingRootNav slidingRootNav;
-    private String[] screenTitles;
-    private Drawable[] screenIcons;
-
     private static final String VENTA = "1";
     private static final String ALQUILER = "2";
     private static final String ANTICRETICO = "3";
 
-    private Button btn_venta;
-    private Button btn_alquiler;
-    private Button btn_anticretico;
+    private CheckBox chek_casas;
+    private CheckBox chek_alquiler;
+    private CheckBox chek_anticretico;
+    private Button btn_continuar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_publicar, container, false);
 
-        //NAVIGATION
+        chek_casas = view.findViewById(R.id.check_casas);
+        chek_alquiler = view.findViewById(R.id.check_alquiler);
+        chek_anticretico = view.findViewById(R.id.check_anticretico);
 
-       /* slidingRootNav = new SlidingRootNavBuilder(this)
-                .withToolbarMenuToggle(toolbar)
-                .withMenuOpened(false)
-                .withContentClickableWhenMenuOpened(true)
-                .withSavedState(savedInstanceState)
-                .withMenuLayout(R.layout.menu_left_drawer)
-                .inject();
-
-        screenIcons = loadScreenIcons();
-        screenTitles = loadScreenTitles();
-
-        DrawerAdapter drawadapter = new DrawerAdapter(Arrays.asList(
-                createItemFor(Constant.POS_BUSCAR).setChecked(true),
-                createItemFor(Constant.POS_PUBLICAR),
-                createItemFor(Constant.POS_FAVORITOS),
-                createItemFor(Constant.POS_COMPARTIR),
-                createItemFor(Constant.POS_CONSULTAS),
-                createItemFor(Constant.POS_PUBLICACIONES),
-                createItemFor(Constant.POS_PERFIL),
-                new SpaceItem(48),
-                createItemFor(Constant.POS_SALIR)));
-        drawadapter.setListener(this);
-
-        RecyclerView list = findViewById(R.id.list);
-        list.setNestedScrollingEnabled(false);
-        list.setLayoutManager(new LinearLayoutManager(this));
-        list.setAdapter(drawadapter);
-
-        drawadapter.setSelected(Constant.POS_PUBLICAR);*/
-
-
-        btn_venta = view.findViewById(R.id.btn_venta);
-        btn_alquiler = view.findViewById(R.id.btn_alquiler);
-        btn_anticretico = view.findViewById(R.id.btn_anticretico);
-
-        btn_venta.setOnClickListener(this);
-        btn_alquiler.setOnClickListener(this);
-        btn_anticretico.setOnClickListener(this);
+        btn_continuar = view.findViewById(R.id.btn_continuar);
 
         return view;
-
     }
 
     @Override

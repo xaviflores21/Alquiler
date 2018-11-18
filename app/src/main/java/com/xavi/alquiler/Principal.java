@@ -32,6 +32,7 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
     private String[] screenTitles;
     private Drawable[] screenIcons;
 
+    Fragment fragment_home = null;
     Fragment fragment_buscar = null;
     Fragment fragment_publicar = null;
     Fragment fragment_favoritos = null;
@@ -62,14 +63,15 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
         screenTitles = loadScreenTitles();
 
         DrawerAdapter drawadapter = new DrawerAdapter(Arrays.asList(
-                createItemFor(Constant.POS_BUSCAR).setChecked(true),
+                createItemFor(Constant.POS_HOME).setChecked(true),
+                createItemFor(Constant.POS_BUSCAR),
                 createItemFor(Constant.POS_PUBLICAR),
                 createItemFor(Constant.POS_FAVORITOS),
                 createItemFor(Constant.POS_NOVEDADES),
                 createItemFor(Constant.POS_CONSULTAS),
                 createItemFor(Constant.POS_PUBLICACIONES),
                 createItemFor(Constant.POS_PERFIL),
-                new SpaceItem(48),
+                new SpaceItem(10),
                 createItemFor(Constant.POS_SALIR)));
         drawadapter.setListener(this);
 
@@ -77,17 +79,20 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
         list.setNestedScrollingEnabled(false);
         list.setLayoutManager(new LinearLayoutManager(this));
         list.setAdapter(drawadapter);
-        drawadapter.setSelected(Constant.POS_BUSCAR);
+        drawadapter.setSelected(Constant.POS_HOME);
 
-        fragment_buscar = new BuscarFrament();
-        getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_buscar).commit();
+        fragment_home = new HomeActivity();
+        getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_home).commit();
 
     }
 
 
     @Override
     public void onItemSelected(int position) {
-
+        if (position == Constant.POS_HOME) {
+            fragment_home = new HomeActivity();
+            getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_home).commit();
+        }
         if (position == Constant.POS_BUSCAR) {
             fragment_buscar = new BuscarFrament();
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_buscar).commit();

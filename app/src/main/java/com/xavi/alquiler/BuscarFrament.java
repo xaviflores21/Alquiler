@@ -9,8 +9,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import com.xavi.alquiler.R;
-
 public class BuscarFrament extends Fragment {
 
     private Button btn_buscar;
