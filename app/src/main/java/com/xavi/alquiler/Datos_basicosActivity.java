@@ -112,7 +112,7 @@ public class Datos_basicosActivity extends AppCompatActivity {
             validar = false;
         }
         if (validar) {
-            //new RegistroActivity.Registrar(nombre,apellido,fecha,usuario,contraseña,carnet).execute();
+            //new RegistroLoginActivity.Registrar(nombre,apellido,fecha,usuario,contraseña,carnet).execute();
         } else {
             return;
         }

@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.xavi.alquiler.R;
 import com.xavi.alquiler.clienteHTTP.HttpConnection;
 import com.xavi.alquiler.clienteHTTP.MethodType;
 import com.xavi.alquiler.clienteHTTP.StandarRequestConfiguration;
@@ -59,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                 validate();
                 break;
             case R.id.text_regitrar:
-                Intent inte = new Intent(LoginActivity.this, RegistroActivity.class);
+                Intent inte = new Intent(LoginActivity.this, RegistroLoginActivity.class);
                 startActivity(inte);
                 break;
         }

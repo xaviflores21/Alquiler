@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.xavi.alquiler.SplashActivity"
+            android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,26 +31,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.xavi.alquiler.LoginActivity"
+            android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.xavi.alquiler.PublicarActivity"
+            android:name=".PublicarActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.xavi.alquiler.Principal"
+            android:name=".Principal"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.xavi.alquiler.SubirFotos" />
+        <activity android:name=".SubirFotos" />
         <activity
-            android:name="com.xavi.alquiler.RegistroActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.xavi.alquiler.PropiedadActivity"
+            android:name=".RegistroLoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.xavi.alquiler.Datos_basicosActivity"
+            android:name=".PropiedadActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.xavi.alquiler.Favoritos"
+            android:name=".Datos_basicosActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Favoritos"
             android:theme="@style/AppTheme.NoActionBar" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -65,12 +65,13 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.xavi.alquiler.MapsActivity"
+            android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name="com.xavi.alquiler.ExploreActivity" />
-        <activity android:name="com.xavi.alquiler.ComentarioActivity" />
-        <activity android:name="com.xavi.alquiler.BuscarFrament" />
-        <activity android:name="com.xavi.alquiler.RegistroBusquedaActivity"></activity>
+        <activity android:name=".ExploreActivity" />
+        <activity android:name=".ComentarioActivity" />
+        <activity android:name=".BuscarFrament" />
+        <activity android:name=".RegistroBusquedaActivity" />
+        <activity android:name=".PerfilUsuarioActivity"></activity>
     </application>
 
 </manifest>

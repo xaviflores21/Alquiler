@@ -12,7 +12,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.xavi.alquiler.R;
 import com.xavi.alquiler.clienteHTTP.HttpConnection;
 import com.xavi.alquiler.clienteHTTP.MethodType;
 import com.xavi.alquiler.clienteHTTP.StandarRequestConfiguration;
@@ -26,7 +25,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 import java.util.Hashtable;
 
-public class RegistroActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegistroLoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText text_nombre;
     private EditText text_apellidos;
@@ -39,7 +38,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro);
+        setContentView(R.layout.activity_registro_login);
 
         text_nombre = findViewById(R.id.text_nombre);
         text_apellidos = findViewById(R.id.text_apellidos);
@@ -172,7 +171,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progreso = new ProgressDialog(RegistroActivity.this);
+            progreso = new ProgressDialog(RegistroLoginActivity.this);
             progreso.setIndeterminate(true);
             progreso.setTitle("Esperando Respuesta");
             progreso.setCancelable(false);
@@ -201,16 +200,16 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
             super.onPostExecute(usr);
             progreso.dismiss();
             if (usr == null) {
-                Toast.makeText(RegistroActivity.this, "Error al conectarse con el servidor.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegistroLoginActivity.this, "Error al conectarse con el servidor.", Toast.LENGTH_SHORT).show();
             } else {
                 JSONObject obj = null;
                 try {
                     obj = new JSONObject(usr);
                     if (obj.getInt("estado") != 1) {
-                        Toast.makeText(RegistroActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegistroLoginActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(RegistroActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
-                        Intent inte = new Intent(RegistroActivity.this, LoginActivity.class);
+                        Toast.makeText(RegistroLoginActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                        Intent inte = new Intent(RegistroLoginActivity.this, LoginActivity.class);
                         startActivity(inte);
                         finish();
                     }
