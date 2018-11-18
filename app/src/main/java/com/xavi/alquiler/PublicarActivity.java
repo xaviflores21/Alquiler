@@ -2,6 +2,7 @@ package com.xavi.alquiler;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -42,6 +43,8 @@ public class PublicarActivity extends Fragment implements View.OnClickListener {
 
     }
 
+
+    public class assa extends AsyncTask
 
     /*@Override
     public void onClick(View view) {
