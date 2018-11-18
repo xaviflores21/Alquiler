@@ -96,7 +96,7 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_publicar).commit();
         }
         if (position == Constant.POS_FAVORITOS) {
-            fragment_favoritos = new Favoritos_Clientes();
+            fragment_favoritos = new Favoritos();
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_favoritos).commit();
         }
         if (position == Constant.POS_NOVEDADES) {

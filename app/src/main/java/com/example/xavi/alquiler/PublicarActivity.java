@@ -143,7 +143,7 @@ public class PublicarActivity extends Fragment implements View.OnClickListener {
             startActivity(i);
         }
         if (position == Constant.POS_FAVORITOS) {
-            Intent i = new Intent(getApplication(), Favoritos_Clientes.class);
+            Intent i = new Intent(getApplication(), Favoritos.class);
             startActivity(i);
         }
         if (position == Constant.POS_COMPARTIR) {

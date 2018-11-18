@@ -50,7 +50,7 @@
             android:name=".Datos_basicosActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Favoritos_Clientes"
+            android:name=".Favoritos"
             android:theme="@style/AppTheme.NoActionBar" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -69,7 +69,8 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".ExploreActivity" />
         <activity android:name=".ComentarioActivity" />
-        <activity android:name=".BuscarFrament"></activity>
+        <activity android:name=".BuscarFrament" />
+        <activity android:name=".RegistroBusquedaActivity"></activity>
     </application>
 
 </manifest>
