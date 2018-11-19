@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:orientation="vertical"
-    tools:context="com.xavi.alquiler.ExploreActivity">
+    tools:context=".ExploreActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar3"
@@ -24,19 +24,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!--<android.support.v7.widget.RecyclerView
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/list_explore"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/layout_item_explore">
 
-        </android.support.v7.widget.RecyclerView>-->
+        </android.support.v7.widget.RecyclerView>
 
-        <ListView
-            android:id="@+id/list_propiedad"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/layout_item_explore"></ListView>
 
     </LinearLayout>
 

@@ -24,17 +24,10 @@
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".PublicarActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Principal"
@@ -50,8 +43,15 @@
             android:name=".Datos_basicosActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Favoritos"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".UbicacionActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            />
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -63,15 +63,15 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
 
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".ExploreActivity" />
-        <activity android:name=".ComentarioActivity" />
-        <activity android:name=".BuscarFrament" />
         <activity android:name=".RegistroBusquedaActivity" />
-        <activity android:name=".PerfilUsuarioActivity"></activity>
     </application>
 
 </manifest>

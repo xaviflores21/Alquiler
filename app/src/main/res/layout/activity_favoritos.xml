@@ -23,7 +23,7 @@
                 android:layout_height="match_parent" />
 
             <ImageView
-                android:id="@+id/ivmarker"
+                android:id="@+id/ivmarfdfker"
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
@@ -45,7 +45,7 @@
                     android:paddingBottom="5dp">
 
                     <AutoCompleteTextView
-                        android:id="@+id/text_direccion_togo"
+                        android:id="@+id/text_direccion_togosdfsd"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginStart="50dp"
