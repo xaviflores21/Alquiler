@@ -99,7 +99,7 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btn_continuar:
                 validar();
                 break;
-            case R.id.check_casas:
+            case R.id.check_venta:
                 if (chek_venta.isChecked()){
                     venta  = true;
                 }else{
