@@ -12,24 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        app:title="Publicar"
+        app:title="Tipo de Propiedad"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp">
     </android.support.v7.widget.Toolbar>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tipo de Propiedad"
-            android:textSize="20dp"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_margin="10dp"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/list_propiedad"
@@ -39,7 +30,7 @@
 
         </android.support.v7.widget.RecyclerView>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </LinearLayout>

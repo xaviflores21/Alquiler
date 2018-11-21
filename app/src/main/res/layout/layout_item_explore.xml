@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingTop="10dp"
     android:background="#EEEEEE">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
         app:cardCornerRadius="3dp"
         app:cardElevation="3dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -21,54 +22,181 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:padding="15dp">
-
-            <ImageView
-                android:id="@+id/text_propiedad"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_weight="1"
-                android:inputType="textMultiLine"
-                android:src="@mipmap/logocasa"
-                android:textSize="15sp"
-                tools:text="Alquiler" />
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/text_precio"
+                <ImageView
+                    android:id="@+id/text_propiedad"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:text="Bs. 50544"
-                    android:textColor="#000000"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:layout_height="230dp"
+                    android:layout_weight="1"
+                    android:inputType="textMultiLine"
+                    android:src="@mipmap/logocasa"
+                    android:textSize="15sp"
+                    tools:text="Alquiler" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#929292">
+            </View>
+
+            <LinearLayout
+                android:id="@+id/liner_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/text_descripcion"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="textMultiLine"
-                    android:text="Casa bonita de challet de 24 jhasjdfhfsdf sdf dsf sdf d sfasdf erher  "
-                    android:textColor="#424242"
-                    android:textSize="18dp" />
+                    android:layout_weight="1"
+                    android:gravity="center|start"
+                    android:textSize="15dp"
+                    android:text="Precio de Venta"/>
+
+
+                <TextView
+                    android:id="@+id/text_precio1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center|start"
+                    android:text="Bs. 50544"
+                    android:textColor="@color/colorGris"
+                    android:textSize="15dp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/liner_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center|start"
+                    android:textSize="15dp"
+                    android:text="Precio de Alquiler"/>
+
+
+                <TextView
+                    android:id="@+id/text_precio2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center|start"
+                    android:text="Bs. 50544"
+                    android:textColor="@color/colorGris"
+                    android:textSize="15dp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/liner_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center|start"
+                    android:textSize="15dp"
+                    android:text="Precio de Anticretico"/>
+
+
+                <TextView
+                    android:id="@+id/text_precio3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center|start"
+                    android:text="Bs. 50544"
+                    android:textColor="@color/colorGris"
+                    android:textSize="15dp"
+                    android:textStyle="normal" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_dormitorio"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="2 dormitorios"
+                    android:gravity="center"
+                    android:textColor="@color/colorGris"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/text_baños"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="2 Baños"
+                    android:gravity="center"
+                    android:textColor="@color/colorGris"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/text_metros"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="240 m2"
+                    android:gravity="center"
+                    android:textColor="@color/colorGris"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#929292">
+            </View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -104,9 +232,8 @@
                 </LinearLayout>
 
             </LinearLayout>
+        </LinearLayout>
 
-        </LinearLayout>
-        </LinearLayout>
     </android.support.v7.widget.CardView>
 
 </android.support.constraint.ConstraintLayout>

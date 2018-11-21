@@ -82,13 +82,11 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
     }
 
 
-
     @Override
     public void onClick(int id, View view) {
         Intent intent = new Intent(PropiedadActivity.this, Datos_basicosActivity.class);
         try {
             obj.put("id_propiedad", id);
-
             intent.putExtra("obj", obj.toString());
         } catch (JSONException e) {
             e.printStackTrace();
@@ -100,7 +98,9 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
 
 
     public class get_propiedades extends AsyncTask<Void, String, String> {
+
         private ProgressDialog progreso;
+
         get_propiedades() {
         }
 

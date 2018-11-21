@@ -1,40 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#EEEEEE">
+    android:layout_margin="10dp"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp">
 
-    <android.support.v7.widget.CardView
+
+    <LinearLayout
+        android:id="@+id/liner_propiedad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:cardCornerRadius="3dp"
-        app:cardElevation="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="15dp">
 
-
-        <LinearLayout
-            android:id="@+id/liner_propiedad"
+        <TextView
+            android:id="@+id/text_propiedad"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:padding="15dp">
+            android:inputType="textMultiLine"
+            android:textSize="15sp"
+            tools:text="Alquiler" />
 
-            <TextView
-                android:id="@+id/text_propiedad"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="textMultiLine"
-                android:textSize="15sp"
-                tools:text="Alquiler" />
+    </LinearLayout>
 
-        </LinearLayout>
 
-    </android.support.v7.widget.CardView>
-</android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

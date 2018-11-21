@@ -46,10 +46,12 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
             String tipos="";
             for (int j = 0; j <obj.length() ; j++) {
                 objtemp=array.getJSONObject(i);
-                tipos+=objtemp.getString("nombre")+"  ";
+                tipos+=objtemp.getString("nombre");
             }
-            holder.text_precio.setText(obj.getString("precio"));
-            holder.text_descripcion.setText(obj.getString("descripcion"));
+            holder.text_baños.setText(obj.getInt("baños")+" Baños");
+            holder.text_dormitorio.setText(obj.getInt("cuartos ") + "Cuartos");
+            holder.text_metros.setText(obj.getInt("metros2") + "Metros 2");
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -69,20 +71,34 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView text_propiedad;
-        public TextView text_precio;
-        public TextView text_descripcion;
+        public TextView text_precio1;
+        public TextView text_precio2;
+        public TextView text_precio3;
+        public TextView text_dormitorio;
+        public TextView text_baños;
+        public TextView text_metros;
+        public LinearLayout liner_1;
+        public LinearLayout liner_2;
+        public LinearLayout liner_3;
+
         public LinearLayout liner_favorito;
         public LinearLayout liner_comentario;
 
         public MyViewHolder(View v) {
             super(v);
             text_propiedad = v.findViewById(R.id.text_propiedad);
-            text_precio= v.findViewById(R.id.text_precio);
-            text_descripcion= v.findViewById(R.id.text_descripcion);
+            text_precio1 = v.findViewById(R.id.text_precio1);
+            text_precio2 = v.findViewById(R.id.text_precio2);
+            text_precio3 = v.findViewById(R.id.text_precio3);
+            text_dormitorio= v.findViewById(R.id.text_dormitorio);
+            text_baños= v.findViewById(R.id.text_baños);
+            text_metros= v.findViewById(R.id.text_metros);
+            liner_1 = v.findViewById(R.id.liner_1);
+            liner_2 = v.findViewById(R.id.liner_2);
+            liner_3 = v.findViewById(R.id.liner_3);
             liner_favorito= v.findViewById(R.id.liner_favorito);
             liner_comentario= v.findViewById(R.id.liner_comentario);
         }
     }
-
 
 }

@@ -46,6 +46,7 @@ public class Adapter_propiedad extends RecyclerView.Adapter<Adapter_propiedad.My
                 try {
                     final JSONObject obj = array.getJSONObject(i);
                     holder.text_propiedad.setText(obj.getString("nombre"));
+
                     holder.itemView.setTag(obj.getInt("id"));
                     //holder.text_propiedad.setTag(obj.getInt("id"));
                     holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +72,8 @@ public class Adapter_propiedad extends RecyclerView.Adapter<Adapter_propiedad.My
         return 0;
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
+
         public TextView text_propiedad;
         public LinearLayout liner_propiedad;
 
@@ -81,5 +83,6 @@ public class Adapter_propiedad extends RecyclerView.Adapter<Adapter_propiedad.My
             liner_propiedad = v.findViewById(R.id.liner_propiedad);
 
         }
+
     }
 }
