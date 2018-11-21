@@ -55,6 +55,7 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
                 e.printStackTrace();
             }
         }
+        //hace la peticion al servidor
         new get_propiedades().execute();
     }
 
@@ -81,6 +82,7 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
     }
 
 
+
     @Override
     public void onClick(int id, View view) {
         Intent intent = new Intent(PropiedadActivity.this, Datos_basicosActivity.class);
@@ -96,10 +98,9 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
     }
 
 
+
     public class get_propiedades extends AsyncTask<Void, String, String> {
-
         private ProgressDialog progreso;
-
         get_propiedades() {
         }
 

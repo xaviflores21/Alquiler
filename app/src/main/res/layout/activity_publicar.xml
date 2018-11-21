@@ -80,11 +80,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Casas"
+                            android:text="Venta"
                             android:textSize="18dp" />
 
                         <CheckBox
-                            android:id="@+id/check_casas"
+                            android:id="@+id/check_venta"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:checked="false" />

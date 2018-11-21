@@ -41,22 +41,22 @@ public class Adapter_propiedad extends RecyclerView.Adapter<Adapter_propiedad.My
         return vh;
     }
 
-    @Override
-    public void onBindViewHolder(final MyViewHolder holder, int i) {
-        try {
-            final JSONObject obj = array.getJSONObject(i);
-            holder.text_propiedad.setText(obj.getString("nombre"));
-            holder.itemView.setTag(obj.getInt("id"));
-            //holder.text_propiedad.setTag(obj.getInt("id"));
-          holder.itemView.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                  listener.onClick((int)view.getTag(),view);
-              }
-          });
+               @Override
+            public void onBindViewHolder(final MyViewHolder holder, int i) {
+                try {
+                    final JSONObject obj = array.getJSONObject(i);
+                    holder.text_propiedad.setText(obj.getString("nombre"));
+                    holder.itemView.setTag(obj.getInt("id"));
+                    //holder.text_propiedad.setTag(obj.getInt("id"));
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            listener.onClick((int)view.getTag(),view);
+                        }
+                    });
 
 
-        } catch (JSONException e) {
+                } catch (JSONException e) {
             e.printStackTrace();
         }
     }

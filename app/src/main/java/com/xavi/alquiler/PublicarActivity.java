@@ -20,16 +20,13 @@ import org.json.JSONObject;
 
 public class PublicarActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String VENTA = "1";
-    private static final String ALQUILER = "2";
-    private static final String ANTICRETICO = "3";
 
-    private CheckBox chek_casas;
+    private CheckBox chek_venta;
     private CheckBox chek_alquiler;
     private CheckBox chek_anticretico;
     private Button btn_continuar;
 
-    private Boolean casa =false , alquiler = false , anticretico = false;
+    private Boolean venta =false , alquiler = false , anticretico = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +37,12 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        chek_casas = findViewById(R.id.check_casas);
+        chek_venta = findViewById(R.id.check_venta);
         chek_alquiler = findViewById(R.id.check_alquiler);
         chek_anticretico = findViewById(R.id.check_anticretico);
         btn_continuar = findViewById(R.id.btn_continuar);
 
-        chek_casas.setOnClickListener(this);
+        chek_venta.setOnClickListener(this);
         chek_alquiler.setOnClickListener(this);
         chek_anticretico.setOnClickListener(this);
         btn_continuar.setOnClickListener(this);
@@ -55,7 +52,6 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
             startActivity(intent);
             finish();
         }
-
     }
 
     // Opcion para ir atras sin reiniciar el la actividad anterior de nuevo
@@ -97,12 +93,6 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
         finish();
     }
 
-    public void onCheckboxClicked(View view) {
-        // Is the view now checked?
-        boolean checked = (chek_casas.isChecked());
-
-    }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -110,10 +100,10 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
                 validar();
                 break;
             case R.id.check_casas:
-                if (chek_casas.isChecked()){
-                    casa = true;
+                if (chek_venta.isChecked()){
+                    venta  = true;
                 }else{
-                    casa = false;
+                    venta = false;
                 }
                 break;
             case R.id.check_alquiler:
@@ -134,15 +124,14 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
         }
 
     private void validar() {
-        if(casa == false && alquiler == false && anticretico == false){
-            Toast.makeText(PublicarActivity.this, "tiene eque tener algun preccionadoad", Toast.LENGTH_SHORT).show();
+        if(venta == false && alquiler == false && anticretico == false){
+            Toast.makeText(PublicarActivity.this, "tiene que tener algun preccionadoad", Toast.LENGTH_SHORT).show();
             return;
         }
         Intent intent = new Intent(PublicarActivity.this, PropiedadActivity.class);
         try {
-
             JSONObject og = new JSONObject();
-            og.put("casa", casa);
+            og.put("venta", venta);
             og.put("alquiler", alquiler);
             og.put("anticretico", anticretico);
             intent.putExtra("obj", og.toString());

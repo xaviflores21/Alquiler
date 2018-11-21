@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,13 +32,14 @@ public class ExploreActivity extends Fragment {
 
     private RecyclerView lv;
     private JSONObject obj;
-
+    private RecyclerView.LayoutManager layoutManager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_explore, container, false);
 
         lv = view.findViewById(R.id.list_explore);
-
+        layoutManager = new LinearLayoutManager(getActivity());
+        lv.setLayoutManager(layoutManager);
         new get_Casas().execute();
 
         return view;

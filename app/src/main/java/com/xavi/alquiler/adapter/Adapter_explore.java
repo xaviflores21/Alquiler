@@ -47,9 +47,8 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
             for (int j = 0; j <obj.length() ; j++) {
                 objtemp=array.getJSONObject(i);
                 tipos+=objtemp.getString("nombre")+"  ";
-
             }
-            holder.text_precio.setText(tipos);
+            holder.text_precio.setText(obj.getString("precio"));
             holder.text_descripcion.setText(obj.getString("descripcion"));
         } catch (JSONException e) {
             e.printStackTrace();

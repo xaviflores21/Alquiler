@@ -61,7 +61,7 @@ public class Datos_basicosActivity extends AppCompatActivity {
         if (d.length() > 0) {
             try {
                 obj = new JSONObject(d);
-                Venta = obj.getBoolean("casa");
+                Venta = obj.getBoolean("venta");
                 Alquiler = obj.getBoolean("alquiler");
                 Anticretico = obj.getBoolean("anticretico");
                 id_propiedad = obj.getString("id_propiedad");
