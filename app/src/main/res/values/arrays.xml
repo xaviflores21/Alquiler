@@ -6,9 +6,6 @@
         <item>Buscar</item>
         <item>Publicar</item>
         <item>Favoritos</item>
-        <item>Novedades</item>
-        <item>Consultas</item>
-        <item>Mis Publicaciones</item>
         <item>Perfil</item>
         <item></item>
         <item>Cerrar Sesion</item>
@@ -19,9 +16,6 @@
         <item>@drawable/busqueda</item>
         <item>@drawable/add</item>
         <item>@drawable/favoritos</item>
-        <item>@drawable/noticias</item>
-        <item>@drawable/colaborated</item>
-        <item>@drawable/publicaciones</item>
         <item>@drawable/users</item>
         <item>0</item>
         <item>@drawable/exit</item>

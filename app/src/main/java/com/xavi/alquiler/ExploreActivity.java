@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 
 import com.xavi.alquiler.R;
@@ -33,13 +34,25 @@ public class ExploreActivity extends Fragment {
     private RecyclerView lv;
     private JSONObject obj;
     private RecyclerView.LayoutManager layoutManager;
+
+    private TextView text_dormitorio;
+    private TextView text_baños;
+    private TextView text_metros;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_explore, container, false);
 
+        text_dormitorio = view.findViewById(R.id.text_dormitorio);
+        text_baños = view.findViewById(R.id.text_baños);
+        text_metros = view.findViewById(R.id.text_metros);
+
+
         lv = view.findViewById(R.id.list_explore);
         layoutManager = new LinearLayoutManager(getActivity());
         lv.setLayoutManager(layoutManager);
+
         new get_Casas().execute();
 
         return view;

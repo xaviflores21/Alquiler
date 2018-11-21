@@ -37,9 +37,6 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
     Fragment fragment_buscar = null;
     Fragment fragment_publicar = null;
     Fragment fragment_favoritos = null;
-    Fragment fragment_novedades = null;
-    Fragment fragment_consultar = null;
-    Fragment fragment_publicaciones = null;
     Fragment fragment_perfil = null;
 
     @Override
@@ -68,9 +65,6 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
                 createItemFor(Constant.POS_BUSCAR),
                 createItemFor(Constant.POS_PUBLICAR),
                 createItemFor(Constant.POS_FAVORITOS),
-                createItemFor(Constant.POS_NOVEDADES),
-                createItemFor(Constant.POS_CONSULTAS),
-                createItemFor(Constant.POS_PUBLICACIONES),
                 createItemFor(Constant.POS_PERFIL),
                 new SpaceItem(10),
                 createItemFor(Constant.POS_SALIR)));
@@ -105,18 +99,6 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
         if (position == Constant.POS_FAVORITOS) {
             fragment_favoritos = new Favoritos();
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_favoritos).commit();
-        }
-        if (position == Constant.POS_NOVEDADES) {
-            fragment_novedades = new ExploreActivity();
-            getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_novedades).commit();
-        }
-        if (position == Constant.POS_CONSULTAS) {
-            fragment_consultar = new ComentarioActivity();
-            getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_consultar).commit();
-        }
-        if (position == Constant.POS_PUBLICACIONES) {
-            //fragment_publicaciones = new PublicarActivity();
-            //getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_publicaciones).commit();
         }
         if (position == Constant.POS_PERFIL) {
             fragment_perfil = new PerfilUsuarioActivity();
