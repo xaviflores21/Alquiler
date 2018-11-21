@@ -20,7 +20,6 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
     private JSONArray objArray;
 
     private Context contexto;
-    private JSONArray reservas;
 
     public Adapter_explore() {
     }
@@ -42,7 +41,15 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
         try {
             final JSONObject obj = objArray.getJSONObject(i);
             Boolean like = obj.getBoolean("like");
-            holder.text_precio.setText(obj.getString("precio"));
+            JSONArray array = obj.getJSONArray("arrCostos");
+            JSONObject objtemp;
+            String tipos="";
+            for (int j = 0; j <obj.length() ; j++) {
+                objtemp=array.getJSONObject(i);
+                tipos+=objtemp.getString("nombre")+"  ";
+
+            }
+            holder.text_precio.setText(tipos);
             holder.text_descripcion.setText(obj.getString("descripcion"));
         } catch (JSONException e) {
             e.printStackTrace();

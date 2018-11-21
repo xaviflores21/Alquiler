@@ -1,6 +1,8 @@
 package com.xavi.alquiler;
 
 import android.Manifest;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -45,6 +47,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.xavi.alquiler.Utiles.DirectionsJSONParser;
 import com.xavi.alquiler.Utiles.PlaceArrayAdapter;
+import com.xavi.alquiler.clienteHTTP.HttpConnection;
+import com.xavi.alquiler.clienteHTTP.MethodType;
+import com.xavi.alquiler.clienteHTTP.StandarRequestConfiguration;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -57,14 +62,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Locale;
 
-public class UbicacionActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener, GoogleApiClient.OnConnectionFailedListener,GoogleApiClient.ConnectionCallbacks  {
+public class UbicacionActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener, GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
 
     MapView mMapView;
     private GoogleMap googleMap;
-    private boolean entroLocation=false;
+    private boolean entroLocation = false;
     private static final String LOG_TAG = "MainActivity";
     private static final int GOOGLE_API_CLIENT_ID = 0;
     private AutoCompleteTextView selected;
@@ -72,13 +78,13 @@ public class UbicacionActivity extends AppCompatActivity implements View.OnClick
     private LatLng fin;
     private GoogleApiClient mGoogleApiClient;
     private PlaceArrayAdapter mPlaceArrayAdapter;
-    private BottomSheetBehavior bottomSheetBehavior;
     private static final LatLngBounds BOUNDS_MOUNTAIN_VIEW = new LatLngBounds(
             new LatLng(37.398160, -122.180831), new LatLng(37.430610, -121.9720));
     JSONObject usr_log;
 
-    double longitudeGPS= -63.182033;
-    double latitudeGPS=-17.783274;
+    double longitudeGPS = -63.182033;
+    double latitudeGPS = -17.783274;
+    private JSONObject obj;
 
     private AutoCompleteTextView text_direccion;
     private Button btn_agregar;
@@ -101,8 +107,17 @@ public class UbicacionActivity extends AppCompatActivity implements View.OnClick
         btn_agregar = findViewById(R.id.btn_agregar);
         btn_agregar.setOnClickListener(this);
 
-        longitudeGPS = getIntent().getDoubleExtra("lng",0);
-        latitudeGPS = getIntent().getDoubleExtra("lat",0);
+        longitudeGPS = getIntent().getDoubleExtra("lng", 0);
+        latitudeGPS = getIntent().getDoubleExtra("lat", 0);
+
+        String d = getIntent().getStringExtra("obj");
+        if (d.length() > 0) {
+            try {
+                obj = new JSONObject(d);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
 
         mGoogleApiClient = new GoogleApiClient.Builder(UbicacionActivity.this)
                 .addApi(Places.GEO_DATA_API)
@@ -114,7 +129,7 @@ public class UbicacionActivity extends AppCompatActivity implements View.OnClick
         text_direccion.setOnFocusChangeListener(this);
         text_direccion.setThreshold(3);
         text_direccion.setOnItemClickListener(mAutocompleteClickListener);
-        AutocompleteFilter auto= new AutocompleteFilter.Builder().setCountry("BO").build();
+        AutocompleteFilter auto = new AutocompleteFilter.Builder().setCountry("BO").build();
         mPlaceArrayAdapter = new PlaceArrayAdapter(this, android.R.layout.simple_list_item_1,
                 BOUNDS_MOUNTAIN_VIEW, auto);
         text_direccion.setAdapter(mPlaceArrayAdapter);
@@ -140,8 +155,8 @@ public class UbicacionActivity extends AppCompatActivity implements View.OnClick
                 mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
                     @Override
                     public void onMyLocationChange(Location location) {
-                        if (!entroLocation){
-                            entroLocation=true;
+                        if (!entroLocation) {
+                            entroLocation = true;
                             CameraUpdate cu = CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 14);
                             googleMap.animateCamera(cu);
                         }
@@ -157,8 +172,8 @@ public class UbicacionActivity extends AppCompatActivity implements View.OnClick
                             mMap.clear();
                             if (text_direccion.getTag() != null) {
                                 LatLng latlng2 = (LatLng) text_direccion.getTag();
-                                fin=latlng2;
-                           //     googleMap.addMarker(new MarkerOptions().position(latlng2).title("FIN").icon(BitmapDescriptorFactory.fromResource(R.drawable.asetmar)).anchor(0.5f,0.5f));
+                                fin = latlng2;
+                                //     googleMap.addMarker(new MarkerOptions().position(latlng2).title("FIN").icon(BitmapDescriptorFactory.fromResource(R.drawable.asetmar)).anchor(0.5f,0.5f));
                             }
                             selected.setText(getCompleteAddressString(center.latitude, center.longitude));
 
@@ -202,6 +217,7 @@ public class UbicacionActivity extends AppCompatActivity implements View.OnClick
                 return super.onOptionsItemSelected(item);
         }
     }
+
     @Override
     public void onBackPressed() {
         finish();
@@ -210,20 +226,19 @@ public class UbicacionActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View view) {
-        android.app.FragmentManager fragmentManager = getFragmentManager();
         switch (view.getId()) {
             case R.id.btn_agregar:
-                JSONObject obj = new JSONObject();
                 Double latFin = fin.latitude;
                 Double lngFin = fin.longitude;
                 try {
-                    obj.put("user_id",getUsr_log().getInt("id"));
-                    obj.put("latFin",latFin);
-                    obj.put("lngFin",lngFin);
+                    obj.put("id_usr", getUsr_log().getInt("id"));
+                    obj.put("lat", latFin);
+                    obj.put("lng", lngFin);
+                    obj.put("direccion",getfullAdress(latFin,lngFin));
+                    new Registrar().execute();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-               // new Add_ubicacion_favoritos_Dialog(obj , 0 ,2).show(fragmentManager, "Dialog");
                 break;
         }
     }
@@ -269,9 +284,9 @@ public class UbicacionActivity extends AppCompatActivity implements View.OnClick
                 Address returnedAddress = addresses.get(0);
                 //StringBuilder strReturnedAddress = new StringBuilder("");
 
-                strAdd=returnedAddress.getThoroughfare();
-                if(strAdd==null )
-                strAdd=returnedAddress.getFeatureName();
+                strAdd = returnedAddress.getThoroughfare();
+                if (strAdd == null)
+                    strAdd = returnedAddress.getFeatureName();
 
                 //  Log.w("My Current loction addr", strReturnedAddress.toString());
             } else {
@@ -284,10 +299,35 @@ public class UbicacionActivity extends AppCompatActivity implements View.OnClick
         return strAdd;
     }
 
+
+    private String getfullAdress(double LATITUDE, double LONGITUDE) {
+        String strAdd = "";
+        Geocoder geocoder = new Geocoder(UbicacionActivity.this, Locale.getDefault());
+        try {
+            List<Address> addresses = geocoder.getFromLocation(LATITUDE, LONGITUDE, 1);
+            if (addresses != null) {
+                Address returnedAddress = addresses.get(0);
+                StringBuilder strReturnedAddress = new StringBuilder("");
+
+                for (int i = 0; i <= returnedAddress.getMaxAddressLineIndex(); i++) {
+                    strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
+                }
+                strAdd = strReturnedAddress.toString();
+                Log.w("My Current loction addr", strReturnedAddress.toString());
+            } else {
+                Log.w("My Current loction addr", "No Address returned!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.w("My Current loction addr", "Canont get Address!");
+        }
+        return strAdd;
+    }
+
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
-        if(hasFocus){
-            selected=(AutoCompleteTextView) v;
+        if (hasFocus) {
+            selected = (AutoCompleteTextView) v;
         }
     }
 
@@ -306,7 +346,6 @@ public class UbicacionActivity extends AppCompatActivity implements View.OnClick
             }
         }
     }
-
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
@@ -329,6 +368,67 @@ public class UbicacionActivity extends AppCompatActivity implements View.OnClick
                 "Google Places API connection failed with error code:" +
                         connectionResult.getErrorCode(),
                 Toast.LENGTH_LONG).show();
+    }
+
+
+    private class Registrar extends AsyncTask<Void, String, String> {
+
+        private ProgressDialog progreso;
+
+        public Registrar() {
+
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progreso = new ProgressDialog(UbicacionActivity.this);
+            progreso.setIndeterminate(true);
+            progreso.setTitle("Esperando Respuesta");
+            progreso.setCancelable(false);
+            progreso.show();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            Hashtable<String, String> param = new Hashtable<>();
+            param.put("evento", "registrar_casa_complete");
+            param.put("TokenAcceso", "servi12sis3");
+            param.put("casa", obj.toString());
+            String respuesta = HttpConnection.sendRequest(new StandarRequestConfiguration(getString(R.string.url_servlet_admin), MethodType.POST, param));
+            return respuesta;
+        }
+
+        @Override
+        protected void onPostExecute(String usr) {
+            super.onPostExecute(usr);
+            progreso.dismiss();
+            if (usr == null) {
+                Toast.makeText(UbicacionActivity.this, "Error al conectarse con el servidor.", Toast.LENGTH_SHORT).show();
+            } else {
+                JSONObject obj = null;
+                try {
+                    obj = new JSONObject(usr);
+                    if (obj.getInt("estado") != 1) {
+                        Toast.makeText(UbicacionActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(UbicacionActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(UbicacionActivity.this, Principal.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        @Override
+        protected void onProgressUpdate(String... values) {
+            super.onProgressUpdate(values);
+
+        }
     }
 
 }

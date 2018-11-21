@@ -1,5 +1,6 @@
 package com.xavi.alquiler;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -81,7 +82,7 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
         list.setAdapter(drawadapter);
         drawadapter.setSelected(Constant.POS_HOME);
 
-        fragment_home = new HomeActivity();
+        fragment_home = new ExploreActivity();
         getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_home).commit();
 
     }
@@ -90,7 +91,7 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
     @Override
     public void onItemSelected(int position) {
         if (position == Constant.POS_HOME) {
-            fragment_home = new HomeActivity();
+            fragment_home = new ExploreActivity();
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_home).commit();
         }
         if (position == Constant.POS_BUSCAR) {
@@ -98,8 +99,8 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_buscar).commit();
         }
         if (position == Constant.POS_PUBLICAR) {
-            fragment_publicar = new PublicarActivity();
-            getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_publicar).commit();
+            Intent intent = new Intent(Principal.this, PublicarActivity.class);
+            startActivity(intent);
         }
         if (position == Constant.POS_FAVORITOS) {
             fragment_favoritos = new Favoritos();

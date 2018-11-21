@@ -2,6 +2,7 @@ package com.xavi.alquiler;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -39,7 +40,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        /*btn_login = findViewById(R.id.btn_login);
+        btn_login = findViewById(R.id.btn_login);
         text_regitrar = findViewById(R.id.text_regitrar);
         btn_login.setOnClickListener(this);
         text_regitrar.setOnClickListener(this);
@@ -47,7 +48,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         text_usuario = findViewById(R.id.text_usuario);
         text_contraseña = findViewById(R.id.text_contraseña);
 
-        mLoginFormView = findViewById(R.id.login_form);*/
+        mLoginFormView = findViewById(R.id.login_form);
     }
 
 
@@ -150,6 +151,16 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                     if (obj.getInt("estado") != 1) {
                         Toast.makeText(LoginActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
                     } else {
+
+                        SharedPreferences preferences = getSharedPreferences("myPref", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("usr_log", obj.getString("resp"));
+                        editor.commit();
+
+                        Intent intent = new Intent(LoginActivity.this, Principal.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+
                         Toast.makeText(LoginActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {

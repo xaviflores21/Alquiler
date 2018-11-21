@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context="com.xavi.alquiler.Datos_basicosActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
@@ -18,12 +16,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            app:navigationIcon="@drawable/baseline_keyboard_backspace_black_18dp"
             app:title="Datos Basicos"
             app:titleTextColor="@color/colorAccent"
             tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="0dp"></android.support.v7.widget.Toolbar>
+            tools:layout_editor_absoluteY="0dp">
 
+        </android.support.v7.widget.Toolbar>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -32,37 +30,117 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingRight="20dp"
+                android:paddingStart="20dp">
 
-                <LinearLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="bottom"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    app:cardCornerRadius="3dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Precio"
-                        android:textSize="18dp" />
 
-                    <EditText
-                        android:id="@+id/text_precio"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:autofillHints=""
-                        android:imeActionId="6"
-                        android:imeActionLabel="@string/action_sign_in_short"
-                        android:inputType="number"
-                        android:maxLines="1"
-                        android:singleLine="true" />
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/liner_venta"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="bottom"
+                            android:visibility="gone"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Precio de venta"
+                                android:textSize="18dp" />
+
+                            <EditText
+                                android:id="@+id/text_precioVenta"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints=""
+                                android:imeActionId="6"
+                                android:imeActionLabel="@string/action_sign_in_short"
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:singleLine="true" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/liner_alquiler"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="bottom"
+                            android:visibility="gone"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Precio de Alquiler"
+                                android:textSize="18dp" />
+
+                            <EditText
+                                android:id="@+id/text_precioAlquiler"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints=""
+                                android:imeActionId="6"
+                                android:imeActionLabel="@string/action_sign_in_short"
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:singleLine="true" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/liner_anticretico"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="bottom"
+                            android:visibility="gone"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Precio de Anticretico"
+                                android:textSize="18dp" />
+
+                            <EditText
+                                android:id="@+id/text_precioAnticretico"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints=""
+                                android:imeActionId="6"
+                                android:imeActionLabel="@string/action_sign_in_short"
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:singleLine="true" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -71,6 +149,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_dormitorio"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -82,7 +161,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="35dp"
                         android:layout_marginTop="5dp"
-                        android:prompt="@string/spn_dormitorio" />
+                        android:entries="@array/dormitorio" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -92,6 +171,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_baño"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -103,7 +183,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="35dp"
                         android:layout_marginTop="5dp"
-                        android:prompt="@string/spn_banho" />
+                        android:entries="@array/banho" />
 
                 </LinearLayout>
 
@@ -126,8 +206,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:imeActionId="6"
-                        android:imeActionLabel="@string/action_sign_in_short"
-                        android:inputType="text"
+                        android:inputType="number"
                         android:maxLines="1"
                         android:singleLine="true" />
 
@@ -152,8 +231,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:imeActionId="6"
-                        android:imeActionLabel="@string/action_sign_in_short"
-                        android:inputType="text"
+                        android:inputType="textMultiLine"
                         android:maxLines="1"
                         android:singleLine="true" />
 
@@ -170,7 +248,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#03a9f4"
-                        android:text="Registrar"
+                        android:text="Continuar"
                         android:textColor="@color/colorWhite"
                         android:textStyle="bold" />
 
