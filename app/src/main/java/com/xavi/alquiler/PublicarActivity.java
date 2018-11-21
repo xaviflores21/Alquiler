@@ -26,7 +26,7 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
     private CheckBox chek_anticretico;
     private Button btn_continuar;
 
-    private Boolean venta =false , alquiler = false , anticretico = false;
+    private Boolean venta = false, alquiler = false, anticretico = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +47,8 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
         chek_anticretico.setOnClickListener(this);
         btn_continuar.setOnClickListener(this);
 
-        if(getUsr_log()==null){
-            Intent intent = new Intent(PublicarActivity.this , LoginActivity.class);
+        if (getUsr_log() == null) {
+            Intent intent = new Intent(PublicarActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
         }
@@ -95,36 +95,36 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_continuar:
                 validar();
                 break;
             case R.id.check_venta:
-                if (chek_venta.isChecked()){
-                    venta  = true;
-                }else{
+                if (chek_venta.isChecked()) {
+                    venta = true;
+                } else {
                     venta = false;
                 }
                 break;
             case R.id.check_alquiler:
-                if (chek_alquiler.isChecked()){
+                if (chek_alquiler.isChecked()) {
                     alquiler = true;
-                }else{
+                } else {
                     alquiler = false;
                 }
                 break;
             case R.id.check_anticretico:
-                if (chek_anticretico.isChecked()){
+                if (chek_anticretico.isChecked()) {
                     anticretico = true;
-                }else{
+                } else {
                     anticretico = false;
                 }
                 break;
-            }
         }
+    }
 
     private void validar() {
-        if(venta == false && alquiler == false && anticretico == false){
+        if (venta == false && alquiler == false && anticretico == false) {
             Toast.makeText(PublicarActivity.this, "tiene que tener algun preccionadoad", Toast.LENGTH_SHORT).show();
             return;
         }

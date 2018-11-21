@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.xavi.alquiler.Listener.ProductoAdapterClik;
@@ -44,6 +45,7 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         lv = findViewById(R.id.list_propiedad);
+
         layoutManager = new LinearLayoutManager(this);
         lv.setLayoutManager(layoutManager);
 
@@ -58,6 +60,8 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
         //hace la peticion al servidor
         new get_propiedades().execute();
     }
+
+
 
     // Opcion para ir atras sin reiniciar el la actividad anterior de nuevo
     @Override
@@ -94,7 +98,6 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
 
         startActivity(intent);
     }
-
 
 
     public class get_propiedades extends AsyncTask<Void, String, String> {

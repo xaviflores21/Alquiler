@@ -64,7 +64,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
-                                android:text="Precio de venta"
+                                android:text="Precio para Venta"
                                 android:textSize="18dp" />
 
                             <EditText
@@ -93,7 +93,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
-                                android:text="Precio de Alquiler"
+                                android:text="Precio para Alquiler"
                                 android:textSize="18dp" />
 
                             <EditText
@@ -122,7 +122,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
-                                android:text="Precio de Anticretico"
+                                android:text="Precio para Anticretico"
                                 android:textSize="18dp" />
 
                             <EditText
