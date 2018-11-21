@@ -37,7 +37,7 @@
                 android:inputType="textMultiLine"
                 android:src="@mipmap/logocasa"
                 android:textSize="15sp"
-                tools:text="Alquiler" />
+                tools:text="Alquiler"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
