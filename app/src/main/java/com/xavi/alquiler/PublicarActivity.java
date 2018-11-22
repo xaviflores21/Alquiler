@@ -25,7 +25,7 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
     private CheckBox chek_alquiler;
     private CheckBox chek_anticretico;
     private Button btn_continuar;
-
+    private int tipo_public=0;
     private Boolean venta = false, alquiler = false, anticretico = false;
 
     @Override
@@ -37,6 +37,7 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        tipo_public= getIntent().getIntExtra("tipo_public",0);
         chek_venta = findViewById(R.id.check_venta);
         chek_alquiler = findViewById(R.id.check_alquiler);
         chek_anticretico = findViewById(R.id.check_anticretico);
@@ -134,6 +135,7 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
             og.put("venta", venta);
             og.put("alquiler", alquiler);
             og.put("anticretico", anticretico);
+            og.put("tipo_public", tipo_public);
             intent.putExtra("obj", og.toString());
             startActivity(intent);
         } catch (JSONException e) {

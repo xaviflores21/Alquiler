@@ -93,7 +93,7 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_buscar).commit();
         }
         if (position == Constant.POS_PUBLICAR) {
-            Intent intent = new Intent(Principal.this, PublicarActivity.class);
+            Intent intent = new Intent(Principal.this, tipo_publicacion_Activity.class);
             startActivity(intent);
         }
         if (position == Constant.POS_FAVORITOS) {

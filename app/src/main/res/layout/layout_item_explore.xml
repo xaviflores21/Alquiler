@@ -28,7 +28,24 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tipopublic"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textColor="#000"
+                    android:textSize="23dp"
+                    android:text="Busco"/>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#929292">
+                </View>
                 <ImageView
                     android:id="@+id/text_propiedad"
                     android:layout_width="match_parent"
@@ -183,7 +200,87 @@
                     android:textSize="15dp" />
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tx_venta"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:gravity="center"
+                        android:textColor="@color/colorGris"
+                        android:textSize="15dp" />
+                    <TextView
+                        android:id="@+id/tx_pecio_venta"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:gravity="center"
+                        android:textColor="@color/colorGris"
+                        android:textSize="15dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tx_alquiler"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:gravity="center"
+                        android:textColor="@color/colorGris"
+                        android:textSize="15dp" />
+                    <TextView
+                        android:id="@+id/tx_precio_alquiler"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:gravity="center"
+                        android:textColor="@color/colorGris"
+                        android:textSize="15dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tx_anticretico"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:gravity="center"
+                        android:textColor="@color/colorGris"
+                        android:textSize="15dp" />
+                    <TextView
+                        android:id="@+id/tx_pecio_anticretico"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:gravity="center"
+                        android:textColor="@color/colorGris"
+                        android:textSize="15dp" />
+                </LinearLayout>
 
+
+
+            </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"

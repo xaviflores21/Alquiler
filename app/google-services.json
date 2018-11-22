@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1081839315033",
+    "firebase_url": "https://servicasas-223104.firebaseio.com",
+    "project_id": "servicasas-223104",
+    "storage_bucket": "servicasas-223104.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081839315033:android:2d08ef65f34bb095",
+        "android_client_info": {
+          "package_name": "com.xavi.alquiler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081839315033-joak8nvelu8sdd8vlc8klfmmjtncs4sk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBuwBj09f4yM6foW2H0d-4Krnldmyhmfc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

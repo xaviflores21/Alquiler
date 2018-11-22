@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.xavi.alquiler.Services.Token;
 import com.xavi.alquiler.clienteHTTP.HttpConnection;
 import com.xavi.alquiler.clienteHTTP.MethodType;
 import com.xavi.alquiler.clienteHTTP.StandarRequestConfiguration;
@@ -132,6 +133,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             Hashtable<String, String> param = new Hashtable<>();
             param.put("evento", "login");
             param.put("TokenAcceso", "servi12sis3");
+            param.put("token", Token.currentToken);
             param.put("usuario", usuario);
             param.put("pass", md5(contraseña));
             String respuesta = HttpConnection.sendRequest(new StandarRequestConfiguration(getString(R.string.url_servlet_admin), MethodType.POST, param));

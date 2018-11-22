@@ -7,6 +7,7 @@ public class Contexto extends Application {
 
     private static Contexto instancia;
     public static String APP_TAG = "alquiler";
+    public static final String CHANNEL_ID = "ServiceMap";
     private BroadcastReceiver reciberconect;
     @Override
     public void onCreate() {

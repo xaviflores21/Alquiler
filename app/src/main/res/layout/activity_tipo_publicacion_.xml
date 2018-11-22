@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".tipo_publicacion_Activity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradientamarillo2"
+        android:layout_weight="1">
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textAlignment="center"
+           android:textColor="#000"
+           android:textSize="18dp"
+           android:text="Escoja su tipo de publicacion."
+           android:layout_gravity="center"
+           />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradientamarillo"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/buscarCasa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginEnd="42dp"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:textSize="12dp"
+            android:background="#99ffffff"
+            android:text="Buscar inmueble."
+            android:drawableTop="@drawable/ic_buscar_casa_iconr_foreground"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradientamarillo2"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/ofertarCasa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginEnd="42dp"
+            android:textColor="#000"
+            android:textSize="12dp"
+            android:background="#99ffffff"
+            android:text="Ofertar inmueble."
+
+            android:drawableTop="@drawable/ic_ofertar_casa_icon_foreground"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+</LinearLayout>

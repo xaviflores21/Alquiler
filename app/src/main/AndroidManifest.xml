@@ -21,6 +21,17 @@
         android:roundIcon="@mipmap/logocasa"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service android:name=".Services.FirebaseService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Services.FirebaseMessagin">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -51,9 +62,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".UbicacionActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -73,7 +82,8 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".RegistroBusquedaActivity" />
-        <activity android:name=".Detalle_Explorer_Activity"></activity>
+        <activity android:name=".Detalle_Explorer_Activity" />
+        <activity android:name=".tipo_publicacion_Activity"></activity>
     </application>
 
 </manifest>

@@ -44,9 +44,9 @@ public class ExploreActivity extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_explore, container, false);
 
-        text_dormitorio = view.findViewById(R.id.text_dormitorio);
-        text_baños = view.findViewById(R.id.text_baños);
-        text_metros = view.findViewById(R.id.text_metros);
+       // text_dormitorio = view.findViewById(R.id.text_dormitorio);
+        //text_baños = view.findViewById(R.id.text_baños);
+        //text_metros = view.findViewById(R.id.text_metros);
 
 
         lv = view.findViewById(R.id.list_explore);
@@ -94,6 +94,8 @@ public class ExploreActivity extends Fragment {
         protected void onPostExecute(final String success) {
             super.onPostExecute(success);
             progreso.dismiss();
+            if(success !=null){
+
             if (!success.isEmpty()) {
                 try {
                     JSONObject obj = new JSONObject(success);
@@ -109,6 +111,7 @@ public class ExploreActivity extends Fragment {
                 }
             } else {
                 return;
+            }
             }
         }
 

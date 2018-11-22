@@ -9,4 +9,6 @@ public class  Constant {
     public static final int POS_PERFIL = 4;
     public static final int POS_SALIR = 6;
 
+
+
 }

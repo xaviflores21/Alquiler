@@ -39,7 +39,7 @@ public class Datos_basicosActivity extends AppCompatActivity {
     private Boolean Alquiler;
     private Boolean Anticretico;
     private String id_propiedad;
-
+    private int tipo_public=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +65,7 @@ public class Datos_basicosActivity extends AppCompatActivity {
                 Alquiler = obj.getBoolean("alquiler");
                 Anticretico = obj.getBoolean("anticretico");
                 id_propiedad = obj.getString("id_propiedad");
+                tipo_public = obj.getInt("tipo_public");
                 if (Venta == true) {
                     liner_venta.setVisibility(View.VISIBLE);
                 }
@@ -196,7 +197,7 @@ public class Datos_basicosActivity extends AppCompatActivity {
                 newObj.put("cant_banhos", baño);
                 newObj.put("metros2", metros_propiedad);
                 newObj.put("descripcion", descripcion);
-                newObj.put("tipo_public", "1");
+                newObj.put("tipo_public", tipo_public);
                 intent.putExtra("obj", newObj.toString());
                 startActivity(intent);
             } catch (JSONException e) {
