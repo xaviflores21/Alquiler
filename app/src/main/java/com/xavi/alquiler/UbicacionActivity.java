@@ -234,7 +234,7 @@ public class UbicacionActivity extends AppCompatActivity implements View.OnClick
                     obj.put("id_usr", getUsr_log().getInt("id"));
                     obj.put("lat", latFin);
                     obj.put("lng", lngFin);
-                    obj.put("direccion",getfullAdress(latFin,lngFin));
+                    obj.put("direccion", getfullAdress(latFin, lngFin));
                     new Registrar().execute();
                 } catch (JSONException e) {
                     e.printStackTrace();

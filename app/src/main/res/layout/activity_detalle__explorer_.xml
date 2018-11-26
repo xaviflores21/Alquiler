@@ -39,7 +39,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:padding="5dp"
-                    android:visibility="gone">
+                    >
 
                     <TextView
                         android:id="@+id/text_nombre1"
@@ -66,7 +66,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:padding="5dp"
-                    android:visibility="gone">
+                    >
 
                     <TextView
                         android:id="@+id/text_nombre2"
@@ -92,7 +92,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:padding="5dp"
-                    android:visibility="gone">
+                    >
 
                     <TextView
                         android:id="@+id/text_nombre3"

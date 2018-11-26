@@ -14,6 +14,7 @@ public class tipo_publicacion_Activity extends AppCompatActivity {
 
     private TextView buscarCasa;
     private TextView ofertarCasa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,13 +25,13 @@ public class tipo_publicacion_Activity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-        buscarCasa= findViewById(R.id.buscarCasa);
-        ofertarCasa= findViewById(R.id.ofertarCasa);
+        buscarCasa = findViewById(R.id.buscarCasa);
+        ofertarCasa = findViewById(R.id.ofertarCasa);
         buscarCasa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tipo_publicacion_Activity.this, PublicarActivity.class);
-                intent.putExtra("tipo_public",2);
+                intent.putExtra("tipo_public", 2);
                 startActivity(intent);
             }
         });
@@ -38,11 +39,12 @@ public class tipo_publicacion_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(tipo_publicacion_Activity.this, PublicarActivity.class);
-                intent.putExtra("tipo_public",1);
+                intent.putExtra("tipo_public", 1);
                 startActivity(intent);
             }
         });
     }
+
     public JSONObject getUsr_log() {
         SharedPreferences preferencias = getSharedPreferences("myPref", MODE_PRIVATE);
         String usr = preferencias.getString("usr_log", "");

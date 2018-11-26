@@ -129,7 +129,7 @@
                     android:orientation="horizontal"
                     android:padding="5dp">
 
-                    <!--<ImageView
+                   <!-- <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:contentDescription="fb"

@@ -39,7 +39,8 @@ public class Datos_basicosActivity extends AppCompatActivity {
     private Boolean Alquiler;
     private Boolean Anticretico;
     private String id_propiedad;
-    private int tipo_public=0;
+    private int tipo_public = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -203,9 +204,7 @@ public class Datos_basicosActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        } else
-
-        {
+        } else {
             return;
         }
     }

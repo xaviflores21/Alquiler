@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.xavi.alquiler.Utiles.Contexto;
 import com.xavi.alquiler.clienteHTTP.HttpConnection;
@@ -42,6 +43,12 @@ public class Detalle_Explorer_Activity extends AppCompatActivity {
     private LinearLayout linerAlquiler;
     private LinearLayout linerAnticretico;
 
+    private Boolean Venta;
+    private Boolean Alquiler;
+    private Boolean Anticretico;
+    private String id_propiedad;
+    private int tipo_public = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,10 +72,26 @@ public class Detalle_Explorer_Activity extends AppCompatActivity {
         linerAlquiler = findViewById(R.id.liner_alquiler);
         linerAnticretico = findViewById(R.id.linerAnticretico);
 
+
         String d = getIntent().getStringExtra("obj");
         if (d.length() > 0) {
             try {
                 obj = new JSONObject(d);
+                Venta = obj.getBoolean("venta");
+                Alquiler = obj.getBoolean("alquiler");
+                Anticretico = obj.getBoolean("anticretico");
+                id_propiedad = obj.getString("id_propiedad");
+                tipo_public = obj.getInt("tipo_public");
+                if (Venta == true) {
+                    linerVenta.setVisibility(View.VISIBLE);
+                }
+                if (Alquiler == true) {
+
+                    linerAlquiler.setVisibility(View.VISIBLE);
+                }
+                if (Anticretico == true) {
+                    linerAnticretico.setVisibility(View.VISIBLE);
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
