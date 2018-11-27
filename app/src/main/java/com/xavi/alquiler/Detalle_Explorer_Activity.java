@@ -145,22 +145,22 @@ public class Detalle_Explorer_Activity extends AppCompatActivity {
                             if (tipo == 1) {
                                 String nombre = objds.getString("nombre");
                                 String costo = objds.getString("costo");
-                                text_nombre1.setText("Nombre: " + nombre);
-                                text_precio1.setText("Precio: " + costo);
+                                text_nombre1.setText("En " + nombre);
+                                text_precio1.setText(costo + " $");
                                 linerVenta.setVisibility(View.VISIBLE);
                             }
                             if (tipo == 2) {
                                 String nombre = objds.getString("nombre");
                                 String costo = objds.getString("costo");
-                                text_nombre2.setText("Nombre: " + nombre);
-                                text_precio2.setText("Precio: " + costo);
+                                text_nombre2.setText("En " + nombre);
+                                text_precio2.setText(costo + " $");
                                 linerAlquiler.setVisibility(View.VISIBLE);
                             }
                             if (tipo == 3) {
                                 String nombre = objds.getString("nombre");
                                 String costo = objds.getString("costo");
-                                text_nombre3.setText("Nombre: " + nombre);
-                                text_precio3.setText("Precio: " + costo);
+                                text_nombre3.setText("En " + nombre);
+                                text_precio3.setText(costo + " $");
                                 linerAnticretico.setVisibility(View.VISIBLE);
                             }
                         }
@@ -171,11 +171,11 @@ public class Detalle_Explorer_Activity extends AppCompatActivity {
                         String banhos = casa.getString("cant_banhos");
                         String metros2 = casa.getString("metros2");
 
-                        text_descripcion.setText("Descripcion: " + descripcion);
-                        text_direccion.setText("Direccion: " + direccion);
-                        text_dormitorio.setText("Cant. Dormitorios: " + dormitorio);
-                        text_banho.setText("Cant. Bnahos" + banhos);
-                        text_m2.setText("M2: " + metros2);
+                        text_descripcion.setText(descripcion);
+                        text_direccion.setText(direccion);
+                        text_dormitorio.setText("Dormitorios: " + dormitorio);
+                        text_banho.setText("Baños: " + banhos);
+                        text_m2.setText(metros2);
 
 
                     } catch (JSONException e) {

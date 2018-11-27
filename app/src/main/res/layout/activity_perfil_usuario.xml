@@ -27,11 +27,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:layout_margin="10dp"
                 android:padding="15dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -39,16 +41,18 @@
                         android:layout_height="match_parent"
                         android:src="@drawable/correo" />
 
-                    <EditText
-                        android:id="@+id/text_correo"
+                    <TextView
+                        android:id="@+id/text_user"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="willamsflores21@gmail.com" />
+                        android:layout_marginStart="5dp"
+                        android:text="User Name" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -56,16 +60,18 @@
                         android:layout_height="match_parent"
                         android:src="@drawable/users" />
 
-                    <EditText
-                        android:id="@+id/text_user"
+                    <TextView
+                        android:id="@+id/text_name"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Javier W. Flores Mendoza" />
+                        android:layout_marginStart="5dp"
+                        android:text="Full Name" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -73,16 +79,18 @@
                         android:layout_height="match_parent"
                         android:src="@drawable/llamada" />
 
-                    <EditText
-                        android:id="@+id/text_llamada"
+                    <TextView
+                        android:id="@+id/text_ci"
                         android:layout_width="match_parent"
+                        android:layout_marginStart="5dp"
                         android:layout_height="match_parent"
-                        android:text="76681786" />
+                        android:text="C.I." />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -90,11 +98,12 @@
                         android:layout_height="match_parent"
                         android:src="@drawable/pais" />
 
-                    <EditText
-                        android:id="@+id/text_pais"
+                    <TextView
+                        android:id="@+id/text_fecha"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Bolivia" />
+                        android:layout_marginStart="5dp"
+                        android:text="Date Born" />
                 </LinearLayout>
 
             </LinearLayout>

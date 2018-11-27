@@ -55,6 +55,7 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
                 .withContentClickableWhenMenuOpened(true)
                 .withSavedState(savedInstanceState)
                 .withMenuLayout(R.layout.menu_left_drawer)
+
                 .inject();
 
         screenIcons = loadScreenIcons();
@@ -101,8 +102,8 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_favoritos).commit();
         }
         if (position == Constant.POS_PERFIL) {
-            fragment_perfil = new PerfilUsuarioActivity();
-            getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_perfil).commit();
+            Intent intent = new Intent(Principal.this, PerfilUsuarioActivity.class);
+            startActivity(intent);
         }
         if (position == Constant.POS_SALIR) {
             finish();

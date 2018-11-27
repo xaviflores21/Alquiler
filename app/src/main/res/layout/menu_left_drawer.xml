@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".MenuActivity">
 
 
     <LinearLayout
@@ -39,14 +41,14 @@
                         android:id="@+id/navtitle"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Javier W. Flores"
+                        android:text="User Name"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="willamsflores21@gmail.com"
+                        android:text="Full Name"
                         android:textColor="#FF6666"
                         android:textSize="15sp"
                         android:textStyle="normal" />

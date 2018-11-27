@@ -64,6 +64,12 @@
             android:name=".Detalle_Explorer_Activity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".PerfilUsuarioActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".UbicacionActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <!--
