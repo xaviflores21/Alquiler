@@ -2,6 +2,7 @@ package com.xavi.alquiler;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 
 
 import com.xavi.alquiler.Listener.ExplorerAdapterClick;
+import com.xavi.alquiler.Listener.ProductoAdapterClik;
 import com.xavi.alquiler.R;
 import com.xavi.alquiler.Utiles.Contexto;
 import com.xavi.alquiler.adapter.Adapter_explore;
@@ -34,13 +36,15 @@ import org.json.JSONObject;
 
 import java.util.Hashtable;
 
-public class ExploreActivity extends Fragment implements ExplorerAdapterClick {
+public class ExploreActivity extends Fragment implements ProductoAdapterClik {
 
     private RecyclerView lv;
     private JSONObject obj;
     private RecyclerView.LayoutManager layoutManager;
 
-    private ImageView imag_explorer;
+    private TextView venta;
+    private TextView alquiler;
+    private TextView anticretico;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,16 +54,9 @@ public class ExploreActivity extends Fragment implements ExplorerAdapterClick {
         layoutManager = new LinearLayoutManager(getActivity());
         lv.setLayoutManager(layoutManager);
 
-        /*imag_explorer = view.findViewById(R.id.imag_explorer);
-        imag_explorer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent inten = new Intent(getActivity(), Detalle_Explorer_Activity.class);
-                inten.putExtra("some", "some data");
-                startActivity(inten);
-
-            }
-        });*/
+        venta = view.findViewById(R.id.tx_venta);
+        alquiler = view.findViewById(R.id.tx_alquiler);
+        anticretico = view.findViewById(R.id.tx_anticretico);
 
         new get_Casas().execute();
         return view;
@@ -69,7 +66,9 @@ public class ExploreActivity extends Fragment implements ExplorerAdapterClick {
     public void onClick(int id, View view) {
         Intent intent = new Intent(getActivity(), Detalle_Explorer_Activity.class);
         try {
-            obj.put("id_propiedad", id);
+            obj = new JSONObject();
+            obj.put("id_explore", id);
+
             intent.putExtra("obj", obj.toString());
         } catch (JSONException e) {
             e.printStackTrace();
@@ -77,6 +76,7 @@ public class ExploreActivity extends Fragment implements ExplorerAdapterClick {
 
         startActivity(intent);
     }
+
 
     public class get_Casas extends AsyncTask<Void, String, String> {
 
@@ -124,7 +124,7 @@ public class ExploreActivity extends Fragment implements ExplorerAdapterClick {
                             getActivity().finish();
                         }
                         JSONArray arr = new JSONArray(obj.getString("resp"));
-                        Adapter_explore adaptador = new Adapter_explore(getActivity(), arr);
+                        Adapter_explore adaptador = new Adapter_explore(getContext(), arr, ExploreActivity.this);
                         lv.setAdapter(adaptador);
                     } catch (JSONException e) {
                         e.printStackTrace();

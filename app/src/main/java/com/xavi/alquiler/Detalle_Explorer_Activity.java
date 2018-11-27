@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xavi.alquiler.Utiles.Contexto;
+import com.xavi.alquiler.adapter.Adapter_explore;
 import com.xavi.alquiler.clienteHTTP.HttpConnection;
 import com.xavi.alquiler.clienteHTTP.MethodType;
 import com.xavi.alquiler.clienteHTTP.StandarRequestConfiguration;
@@ -26,27 +27,24 @@ public class Detalle_Explorer_Activity extends AppCompatActivity {
 
     private JSONObject obj;
 
-    private TextView text_precio1;
     private TextView text_nombre1;
-    private TextView text_precio2;
     private TextView text_nombre2;
-    private TextView text_precio3;
     private TextView text_nombre3;
+    private TextView text_precio1;
+    private TextView text_precio2;
+    private TextView text_precio3;
 
-    private  TextView text_descripcion;
-    private  TextView text_direccion;
-    private  TextView text_dormitorio;
-    private  TextView text_banho;
-    private  TextView text_m2;
+    private TextView text_descripcion;
+    private TextView text_direccion;
+    private TextView text_dormitorio;
+    private TextView text_banho;
+    private TextView text_m2;
 
     private LinearLayout linerVenta;
     private LinearLayout linerAlquiler;
     private LinearLayout linerAnticretico;
 
-    private Boolean Venta;
-    private Boolean Alquiler;
-    private Boolean Anticretico;
-    private String id_propiedad;
+    private Boolean venta = false, alquiler = false, anticretico = false;
     private int tipo_public = 0;
 
     @Override
@@ -54,12 +52,12 @@ public class Detalle_Explorer_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle__explorer_);
 
-        text_precio1 = findViewById(R.id.text_precio1);
-        text_precio2 = findViewById(R.id.text_precio2);
-        text_precio3 = findViewById(R.id.text_precio3);
         text_nombre1 = findViewById(R.id.text_nombre1);
         text_nombre2 = findViewById(R.id.text_nombre2);
         text_nombre3 = findViewById(R.id.text_nombre3);
+        text_precio1 = findViewById(R.id.text_precio1);
+        text_precio2 = findViewById(R.id.text_precio2);
+        text_precio3 = findViewById(R.id.text_precio3);
 
         text_descripcion = findViewById(R.id.text_descripcion);
         text_direccion = findViewById(R.id.text_direccion);
@@ -69,7 +67,7 @@ public class Detalle_Explorer_Activity extends AppCompatActivity {
 
 
         linerVenta = findViewById(R.id.linerVenta);
-        linerAlquiler = findViewById(R.id.liner_alquiler);
+        linerAlquiler = findViewById(R.id.linerAlquiler);
         linerAnticretico = findViewById(R.id.linerAnticretico);
 
 
@@ -77,27 +75,13 @@ public class Detalle_Explorer_Activity extends AppCompatActivity {
         if (d.length() > 0) {
             try {
                 obj = new JSONObject(d);
-                Venta = obj.getBoolean("venta");
-                Alquiler = obj.getBoolean("alquiler");
-                Anticretico = obj.getBoolean("anticretico");
-                id_propiedad = obj.getString("id_propiedad");
-                tipo_public = obj.getInt("tipo_public");
-                if (Venta == true) {
-                    linerVenta.setVisibility(View.VISIBLE);
-                }
-                if (Alquiler == true) {
-
-                    linerAlquiler.setVisibility(View.VISIBLE);
-                }
-                if (Anticretico == true) {
-                    linerAnticretico.setVisibility(View.VISIBLE);
-                }
+                new get_detalleExplorer().execute();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
         //hace la peticion al servidor
-        new Detalle_Explorer_Activity.get_detalleExplorer().execute();
+
     }
 
 
@@ -121,7 +105,12 @@ public class Detalle_Explorer_Activity extends AppCompatActivity {
         protected String doInBackground(Void... params) {
             Hashtable<String, String> parametros = new Hashtable<>();
             parametros.put("TokenAcceso", "servi12sis3");
-            parametros.put("evento", "getall_tipo_propiedad");
+            parametros.put("evento", "getbyid_casa");
+            try {
+                parametros.put("id", obj.getInt("id_explore") + "");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             String respuesta = "";
             try {
                 respuesta = HttpConnection.sendRequest(new StandarRequestConfiguration(getString(R.string.url_servlet_admin), MethodType.POST, parametros));
@@ -135,49 +124,66 @@ public class Detalle_Explorer_Activity extends AppCompatActivity {
         protected void onPostExecute(final String success) {
             super.onPostExecute(success);
             progreso.dismiss();
-            if (!success.isEmpty()) {
-                try {
-                    JSONObject obj = new JSONObject(success);
-                    if (obj.getInt("estado") != 1) {
-                        //caso de error mosotrar mensaje
-                        finish();
+            if (success != null) {
+
+                if (!success.isEmpty()) {
+                    try {
+                        JSONObject obj = new JSONObject(success);
+                        if (obj.getInt("estado") != 1) {
+                            //caso de errro mosotrar mensaje
+                            finish();
+                        }
+
+                        JSONObject casa = new JSONObject(obj.getString("resp"));
+                        JSONArray tipos = casa.getJSONArray("arrCostos");
+
+                        JSONObject objds;
+                        int tipo = 0;
+                        for (int i = 0; i < tipos.length(); i++) {
+                            objds = tipos.getJSONObject(i);
+                            tipo = objds.getInt("tipo");
+                            if (tipo == 1) {
+                                String nombre = objds.getString("nombre");
+                                String costo = objds.getString("costo");
+                                text_nombre1.setText("Nombre: " + nombre);
+                                text_precio1.setText("Precio: " + costo);
+                                linerVenta.setVisibility(View.VISIBLE);
+                            }
+                            if (tipo == 2) {
+                                String nombre = objds.getString("nombre");
+                                String costo = objds.getString("costo");
+                                text_nombre2.setText("Nombre: " + nombre);
+                                text_precio2.setText("Precio: " + costo);
+                                linerAlquiler.setVisibility(View.VISIBLE);
+                            }
+                            if (tipo == 3) {
+                                String nombre = objds.getString("nombre");
+                                String costo = objds.getString("costo");
+                                text_nombre3.setText("Nombre: " + nombre);
+                                text_precio3.setText("Precio: " + costo);
+                                linerAnticretico.setVisibility(View.VISIBLE);
+                            }
+                        }
+
+                        String descripcion = casa.getString("descripcion");
+                        String direccion = casa.getString("direccion");
+                        String dormitorio = casa.getString("cant_dormitorios");
+                        String banhos = casa.getString("cant_banhos");
+                        String metros2 = casa.getString("metros2");
+
+                        text_descripcion.setText("Descripcion: " + descripcion);
+                        text_direccion.setText("Direccion: " + direccion);
+                        text_dormitorio.setText("Cant. Dormitorios: " + dormitorio);
+                        text_banho.setText("Cant. Bnahos" + banhos);
+                        text_m2.setText("M2: " + metros2);
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-
-                    JSONObject obj2 = new JSONObject(obj.getString("res"));
-                    JSONArray array = new JSONArray(obj2.getString("costo"));
-                    for (int i = 0; i < array.length(); i++) {
-                        JSONObject yeison = array.getJSONObject(i);
-                        String nombre = yeison.getString("nombre");
-                        int precio = yeison.getInt("precio");
-                        int tipo = yeison.getInt("tipo");
-                        if (tipo == 1) {
-                            linerVenta.setVisibility(View.VISIBLE);
-                            text_nombre1.setText(nombre);
-                            text_precio1.setText(precio + "");
-                        }
-                        if (tipo == 2) {
-                            linerAlquiler.setVisibility(View.VISIBLE);
-                            text_nombre2.setText(nombre);
-                            text_precio2.setText(precio + "");
-                        }
-                        if (tipo == 3) {
-                            linerAnticretico.setVisibility(View.VISIBLE);
-                            text_nombre3.setText(nombre);
-                            text_precio3.setText(precio + "");
-                        }
-                    }
-
-                    text_descripcion.setText(obj2.getString("descripcion"));
-                    text_direccion.setText(obj2.getString("direccion"));
-                    text_dormitorio.setText(obj2.getString("dormitorio"));
-                    text_banho.setText(obj2.getString("banho"));
-                    text_m2.setText(obj2.getString("m2"));
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                } else {
+                    return;
                 }
-            } else {
-                return;
             }
         }
 

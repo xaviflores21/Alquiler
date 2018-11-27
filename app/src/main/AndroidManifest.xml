@@ -61,6 +61,9 @@
             android:name=".Datos_basicosActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".Detalle_Explorer_Activity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".UbicacionActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <!--
@@ -82,7 +85,6 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".RegistroBusquedaActivity" />
-        <activity android:name=".Detalle_Explorer_Activity" />
         <activity android:name=".tipo_publicacion_Activity"></activity>
     </application>
 

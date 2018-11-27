@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.xavi.alquiler.Listener.ProductoAdapterClik;
 import com.xavi.alquiler.R;
 
 import org.json.JSONArray;
@@ -22,12 +23,15 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
 
     private Context contexto;
 
+    private ProductoAdapterClik listener;
+
     public Adapter_explore() {
     }
 
-    public Adapter_explore(Context contexto, JSONArray lista) {
+    public Adapter_explore(Context contexto, JSONArray lista , ProductoAdapterClik listener) {
         this.contexto = contexto;
         this.objArray = lista;
+        this.listener = listener;
     }
 
     @Override
@@ -78,6 +82,15 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
             if (obj.has("metros2")) {
                 holder.text_metros.setText(obj.getInt("metros2") + " M²");
             }
+
+            holder.itemView.setTag(obj.getInt("id"));
+            //holder.text_propiedad.setTag(obj.getInt("id"));
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onClick((int) view.getTag(), view);
+                }
+            });
 
 
         } catch (JSONException e) {
