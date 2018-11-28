@@ -31,6 +31,8 @@ public class ComentarioActivity extends AppCompatActivity implements View.OnClic
     private EditText text_mensaje;
     private Button btn_enviar;
     private RecyclerView.LayoutManager layoutManager;
+    private int id_casa, id_usuario;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +56,15 @@ public class ComentarioActivity extends AppCompatActivity implements View.OnClic
             Intent intent = new Intent(ComentarioActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
+        } else {
+            try {
+                id_usuario = (int) getUsr_log().get("id");
+                id_casa = getIntent().getIntExtra("id_casa", 0);
+               //     new Get_comentario(id_usuario).execute();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
-
     }
 
     // Opcion para ir atras sin reiniciar el la actividad anterior de nuevo
@@ -98,7 +107,7 @@ public class ComentarioActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_enviar:
                 validate();
         }
@@ -113,19 +122,19 @@ public class ComentarioActivity extends AppCompatActivity implements View.OnClic
             validar = false;
         }
         if (validar) {
-            new Mensaje(mensaje).execute();
+            new EnviarComentario(mensaje).execute();
         } else {
             return;
         }
     }
 
 
-    private class Mensaje extends AsyncTask<Void, String, String> {
+    private class EnviarComentario extends AsyncTask<Void, String, String> {
 
         private ProgressDialog progreso;
         private String mensaje;
 
-        public Mensaje(String mensajes) {
+        public EnviarComentario(String mensajes) {
             this.mensaje = mensajes;
         }
 
@@ -145,7 +154,70 @@ public class ComentarioActivity extends AppCompatActivity implements View.OnClic
             param.put("evento", "comentario");
             param.put("TokenAcceso", "servi12sis3");
             param.put("token", Token.currentToken);
+            param.put("id_usuario", String.valueOf(id_usuario));
+            param.put("id_casa", String.valueOf(id_casa));
             param.put("mensaje", mensaje);
+            String respuesta = HttpConnection.sendRequest(new StandarRequestConfiguration(getString(R.string.url_servlet_admin), MethodType.POST, param));
+            return respuesta;
+        }
+
+        @Override
+        protected void onPostExecute(String usr) {
+            super.onPostExecute(usr);
+            progreso.dismiss();
+            if (usr == null) {
+                Toast.makeText(ComentarioActivity.this, "Error al conectarse con el servidor.", Toast.LENGTH_SHORT).show();
+            } else {
+                JSONObject obj = null;
+                try {
+                    obj = new JSONObject(usr);
+                    if (obj.getInt("estado") != 1) {
+                        Toast.makeText(ComentarioActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(ComentarioActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        @Override
+        protected void onProgressUpdate(String... values) {
+            super.onProgressUpdate(values);
+
+        }
+    }
+
+
+
+    private class Get_comentario extends AsyncTask<Void, String, String> {
+
+        private ProgressDialog progreso;
+        private int id_casa;
+
+        public Get_comentario(int id_casa) {
+            this.id_casa = id_casa;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progreso = new ProgressDialog(ComentarioActivity.this);
+            progreso.setIndeterminate(true);
+            progreso.setTitle("Esperando Respuesta");
+            progreso.setCancelable(false);
+            progreso.show();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+            Hashtable<String, String> param = new Hashtable<>();
+            param.put("evento", "Get_comentario");
+            param.put("TokenAcceso", "servi12sis3");
+            param.put("token", Token.currentToken);
+            param.put("id_casa", String.valueOf(id_casa));
             String respuesta = HttpConnection.sendRequest(new StandarRequestConfiguration(getString(R.string.url_servlet_admin), MethodType.POST, param));
             return respuesta;
         }

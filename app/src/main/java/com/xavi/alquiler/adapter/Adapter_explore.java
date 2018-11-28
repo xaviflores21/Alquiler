@@ -111,10 +111,10 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
             holder.liner_comentario.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    int sfs = (int) view.getTag();
+                    int id_casa = (int) view.getTag();
                     //Toast.makeText(contexto, "id" + sfs, Toast.LENGTH_SHORT).show();
                     Intent intent  = new Intent(contexto,ComentarioActivity.class);
-
+                    intent.putExtra("id_casa", id_casa);
                     contexto.startActivity(intent);
                 }
             });
