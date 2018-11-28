@@ -6,4 +6,5 @@ public interface ProductoAdapterClik {
 
     public void onClick(int id, View view);
 
+
 }

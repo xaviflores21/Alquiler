@@ -6,16 +6,15 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     app:cardCornerRadius="3dp"
-    app:cardElevation="3dp">
-
+    app:cardElevation="1dp"
+    >
 
     <LinearLayout
         android:id="@+id/liner_propiedad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="15dp">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/text_propiedad"
@@ -24,6 +23,7 @@
             android:layout_weight="1"
             android:inputType="textMultiLine"
             android:textSize="15sp"
+            android:padding="15dp"
             tools:text="Alquiler" />
 
     </LinearLayout>

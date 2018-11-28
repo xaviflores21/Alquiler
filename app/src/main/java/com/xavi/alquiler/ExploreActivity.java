@@ -59,6 +59,7 @@ public class ExploreActivity extends Fragment implements ProductoAdapterClik {
         anticretico = view.findViewById(R.id.tx_anticretico);
 
         new get_Casas().execute();
+
         return view;
     }
 
@@ -68,20 +69,16 @@ public class ExploreActivity extends Fragment implements ProductoAdapterClik {
         try {
             obj = new JSONObject();
             obj.put("id_explore", id);
-
             intent.putExtra("obj", obj.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         startActivity(intent);
     }
-
 
     public class get_Casas extends AsyncTask<Void, String, String> {
 
         private ProgressDialog progreso;
-
         get_Casas() {
         }
 

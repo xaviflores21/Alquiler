@@ -47,9 +47,9 @@ public class Adapter_propiedad extends RecyclerView.Adapter<Adapter_propiedad.My
                     final JSONObject obj = array.getJSONObject(i);
                     holder.text_propiedad.setText(obj.getString("nombre"));
 
-                    holder.itemView.setTag(obj.getInt("id"));
+                    holder.text_propiedad.setTag(obj.getInt("id"));
                     //holder.text_propiedad.setTag(obj.getInt("id"));
-                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    holder.text_propiedad.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             listener.onClick((int)view.getTag(),view);

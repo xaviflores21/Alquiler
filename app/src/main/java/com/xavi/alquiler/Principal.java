@@ -1,6 +1,7 @@
 package com.xavi.alquiler;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import com.xavi.alquiler.R;
 import com.xavi.alquiler.Menu.DrawerAdapter;
@@ -23,6 +25,9 @@ import com.xavi.alquiler.Menu.SpaceItem;
 import com.xavi.alquiler.Utiles.Constant;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Arrays;
 
@@ -76,6 +81,19 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
         list.setLayoutManager(new LinearLayoutManager(this));
         list.setAdapter(drawadapter);
         drawadapter.setSelected(Constant.POS_HOME);
+
+
+        if (getUsr_log() != null) {
+            TextView txtNombre = slidingRootNav.getLayout().findViewById(R.id.navtitle);
+            TextView text_nameMenu = slidingRootNav.getLayout().findViewById(R.id.text_nameMenu);
+            try {
+                txtNombre.setText(getUsr_log().getString("usuario"));
+                text_nameMenu.setText(getUsr_log().getString("nombre"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
 
         fragment_home = new ExploreActivity();
         getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_home).commit();
@@ -154,6 +172,22 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
 
+    }
+
+    public JSONObject getUsr_log() {
+        SharedPreferences preferencias = getSharedPreferences("myPref", MODE_PRIVATE);
+        String usr = preferencias.getString("usr_log", "");
+        if (usr.length() <= 0) {
+            return null;
+        } else {
+            try {
+                JSONObject usr_log = new JSONObject(usr);
+                return usr_log;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
     }
 
 }

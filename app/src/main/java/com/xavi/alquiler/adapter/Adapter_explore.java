@@ -1,6 +1,7 @@
 package com.xavi.alquiler.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.xavi.alquiler.ComentarioActivity;
 import com.xavi.alquiler.Listener.ProductoAdapterClik;
+import com.xavi.alquiler.LoginActivity;
 import com.xavi.alquiler.R;
 
 import org.json.JSONArray;
@@ -83,15 +87,37 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
                 holder.text_metros.setText(obj.getInt("metros2") + " M²");
             }
 
-            holder.itemView.setTag(obj.getInt("id"));
+            holder.imag_explorer.setTag(obj.getInt("id"));
             //holder.text_propiedad.setTag(obj.getInt("id"));
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
+            holder.imag_explorer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     listener.onClick((int) view.getTag(), view);
                 }
             });
 
+            holder.liner_favorito.setTag(obj.getInt("id"));
+            //holder.text_propiedad.setTag(obj.getInt("id"));
+            holder.liner_favorito.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int sfs = (int) view.getTag();
+                    Toast.makeText(contexto, "id" + sfs, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            holder.liner_comentario.setTag(obj.getInt("id"));
+            //holder.text_propiedad.setTag(obj.getInt("id"));
+            holder.liner_comentario.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int sfs = (int) view.getTag();
+                    //Toast.makeText(contexto, "id" + sfs, Toast.LENGTH_SHORT).show();
+                    Intent intent  = new Intent(contexto,ComentarioActivity.class);
+
+                    contexto.startActivity(intent);
+                }
+            });
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -133,8 +159,8 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
         public LinearLayout liner_2;
         public LinearLayout liner_3;
 
-        public LinearLayout liner_favorito;
-        public LinearLayout liner_comentario;
+        public ImageView liner_favorito;
+        public ImageView liner_comentario;
 
         public MyViewHolder(View v) {
             super(v);

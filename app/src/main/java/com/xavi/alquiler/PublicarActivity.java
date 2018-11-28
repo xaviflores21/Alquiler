@@ -20,7 +20,6 @@ import org.json.JSONObject;
 
 public class PublicarActivity extends AppCompatActivity implements View.OnClickListener {
 
-
     private CheckBox chek_venta;
     private CheckBox chek_alquiler;
     private CheckBox chek_anticretico;
@@ -67,6 +66,16 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
     public JSONObject getUsr_log() {
         SharedPreferences preferencias = getSharedPreferences("myPref", MODE_PRIVATE);
         String usr = preferencias.getString("usr_log", "");
@@ -84,15 +93,6 @@ public class PublicarActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void onBackPressed() {
-        finish();
-    }
 
     @Override
     public void onClick(View view) {

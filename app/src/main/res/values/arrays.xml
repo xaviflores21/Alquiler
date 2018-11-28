@@ -15,8 +15,8 @@
         <item>@drawable/ic_home</item>
         <item>@drawable/busqueda</item>
         <item>@drawable/add</item>
-        <item>@drawable/icons8-agregar-a-favoritos-24-B</item>
-        <item>@drawable/icons8-usuario-de-género-neutro-24-B</item>
+        <item>@drawable/favoritoss</item>
+        <item>@drawable/icons8usuariodegeneroneutro24</item>
         <item>0</item>
         <item>@drawable/exit</item>
     </array>

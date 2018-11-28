@@ -56,7 +56,6 @@ public class PerfilUsuarioActivity extends AppCompatActivity implements View.OnC
                 String fecha = usr_log.getString("fecha_nac");
                 String usuario = usr_log.getString("usuario");
 
-
                 text_user.setText(usuario);
                 text_name.setText(nombre + " " + apellido);
                 text_ci.setText(ci);

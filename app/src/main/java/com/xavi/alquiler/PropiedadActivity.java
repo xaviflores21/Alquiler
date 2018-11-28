@@ -41,11 +41,9 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
 
         Toolbar toolbar = findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         lv = findViewById(R.id.list_propiedad);
-
         layoutManager = new LinearLayoutManager(this);
         lv.setLayoutManager(layoutManager);
 

@@ -78,13 +78,13 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:id="@+id/liner_favorito"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center">
 
                         <ImageView
+                            android:id="@+id/liner_favorito"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:src="@drawable/favoritos"
@@ -94,13 +94,13 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/liner_comentario"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center">
 
                         <ImageView
+                            android:id="@+id/liner_comentario"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:src="@drawable/sms"
