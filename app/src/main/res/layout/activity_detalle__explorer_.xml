@@ -258,8 +258,13 @@
                         android:layout_height="match_parent"
                         android:text="COMENTAR" />
 
-                </LinearLayout>
 
+                </LinearLayout>
+                <Button
+                    android:id="@+id/btn_agg_imagenes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="IMAGENES" />
             </LinearLayout>
 
         </LinearLayout>

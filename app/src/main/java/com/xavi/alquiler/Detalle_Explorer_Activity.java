@@ -44,6 +44,7 @@ public class Detalle_Explorer_Activity extends AppCompatActivity implements View
     private TextView text_banho;
     private TextView text_m2;
     private Button btn_comentar;
+    private Button btn_agg_imagenes;
     private LinearLayout linerVenta;
     private LinearLayout linerAlquiler;
     private LinearLayout linerAnticretico;
@@ -76,8 +77,9 @@ public class Detalle_Explorer_Activity extends AppCompatActivity implements View
         text_m2 = findViewById(R.id.text_m2);
 
         btn_comentar = findViewById(R.id.btn_comentar);
+        btn_agg_imagenes = findViewById(R.id.btn_agg_imagenes);
         btn_comentar.setOnClickListener(this);
-
+        btn_agg_imagenes.setOnClickListener(this);
         linerVenta = findViewById(R.id.linerVenta);
         linerAlquiler = findViewById(R.id.linerAlquiler);
         linerAnticretico = findViewById(R.id.linerAnticretico);
@@ -146,6 +148,12 @@ public class Detalle_Explorer_Activity extends AppCompatActivity implements View
                 inte.putExtra("id_casa", id_explorer);
                 startActivity(inte);
                 break;
+            case R.id.btn_agg_imagenes:
+                Intent inte2 = new Intent(Detalle_Explorer_Activity.this, SubirFotos.class);
+                inte2.putExtra("id_casa", id_explorer);
+                startActivity(inte2);
+                break;
+
         }
     }
 

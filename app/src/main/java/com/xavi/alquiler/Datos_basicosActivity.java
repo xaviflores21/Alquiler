@@ -39,6 +39,10 @@ public class Datos_basicosActivity extends AppCompatActivity {
     private Boolean Alquiler;
     private Boolean Anticretico;
     private String id_propiedad;
+    private Spinner spin1;
+    private Spinner spin2;
+    private String Str_spin1;
+    private String Str_spin2;
     private int tipo_public = 0;
 
     @Override
@@ -82,13 +86,13 @@ public class Datos_basicosActivity extends AppCompatActivity {
             }
         }
 
-        Spinner spin1 = findViewById(R.id.spn1);
-        Spinner spin2 = findViewById(R.id.spn2);
+        spin1 = findViewById(R.id.spn1);
+        spin2 = findViewById(R.id.spn2);
         spin1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String item = adapterView.getItemAtPosition(i).toString();
-                textView_dormitorio.setText(item);
+                Str_spin1=item;
             }
 
             @Override
@@ -101,7 +105,7 @@ public class Datos_basicosActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String item2 = adapterView.getItemAtPosition(i).toString();
-                textView_baño.setText(item2);
+                Str_spin2=item2;
             }
 
             @Override
@@ -128,8 +132,8 @@ public class Datos_basicosActivity extends AppCompatActivity {
         String precioVenta = text_precioVenta.getText().toString().trim();
         String precioAlquiler = text_precioAlquiler.getText().toString().trim();
         String precioAnticretico = text_precioAnticretico.getText().toString().trim();
-        String dormitorio = textView_dormitorio.getText().toString().trim();
-        String baño = textView_baño.getText().toString().trim();
+        String dormitorio = Str_spin1;
+        String baño = Str_spin2;
         String metros_propiedad = text_metros_terreno.getText().toString().trim();
         String descripcion = text_descripcion.getText().toString().trim();
 
