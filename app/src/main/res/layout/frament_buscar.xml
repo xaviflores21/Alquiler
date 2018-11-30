@@ -5,112 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorWhite"
-    tools:context="com.xavi.alquiler.BuscarFrament">
+    android:background="@color/mdtp_white"
+    tools:context=".UbicacionActivity">
 
-    <ScrollView
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingBottom="@dimen/activity_vertical_margin">
+            android:layout_height="match_parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+        <ImageView
+            android:id="@+id/ivmarker"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/asetmar" />
 
-                <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:src="@mipmap/logocasa"
-                    android:text="LogoCasa" />
+        <Button
+            android:id="@+id/btn_agregar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:text="Agregar"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="18dp"
+            android:visibility="visible" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:paddingTop="15dp"
-                    android:text="SERVICASAS"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="35dp"
-                    android:textStyle="bold" />
 
-            </LinearLayout>
+        <AutoCompleteTextView
+            android:id="@+id/text_direccion_casa"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/ic_button_border_gris"
+            android:drawablePadding="5dp"
+            android:hint="Direccion"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:textSize="15sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Casas"
-                    android:textSize="18dp" />
-
-                <Spinner
-                    android:id="@+id/spn1"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="5dp"
-                    android:prompt="@string/spn_casa" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Venta"
-                    android:textSize="18dp" />
-
-                <Spinner
-                    android:id="@+id/spn2"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="5dp"
-                    android:prompt="@string/spn_venta" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_margin="10dp"
-                android:background="#03a9f4"
-                android:gravity="center">
-
-                <Button
-                    android:id="@+id/btn_buscar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#03a9f4"
-                    android:text="Buscar"
-                    android:drawableRight="@drawable/busquedawhite"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-
+    </FrameLayout>
 
 </LinearLayout>

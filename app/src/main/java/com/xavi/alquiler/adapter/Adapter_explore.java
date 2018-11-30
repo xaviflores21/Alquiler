@@ -32,7 +32,7 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
     public Adapter_explore() {
     }
 
-    public Adapter_explore(Context contexto, JSONArray lista , ProductoAdapterClik listener) {
+    public Adapter_explore(Context contexto, JSONArray lista, ProductoAdapterClik listener) {
         this.contexto = contexto;
         this.objArray = lista;
         this.listener = listener;
@@ -50,7 +50,7 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
         try {
             final JSONObject obj = objArray.getJSONObject(i);
             //Boolean like = obj.getBoolean("like");
-            JSONArray array = obj.getJSONArray("arrCostos");
+            //SONArray array = obj.getJSONArray("arrCostos");
             JSONObject objtemp;
             String tipos = "";
             if (obj.getInt("tipo_public") == 1) {
@@ -58,24 +58,21 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
             } else if (obj.getInt("tipo_public") == 2) {
                 holder.tipopublic.setText("BUSCO: " + obj.getJSONObject("tipo_propiedad").getString("nombre"));
             }
-            for (int j = 0; j < array.length(); j++) {
-                objtemp = array.getJSONObject(j);
-                //  tipos+=objtemp.getString("nombre") + " ";
-                switch (objtemp.getInt("tipo")) {
-                    case 1:
-                        holder.tx_venta.setText(objtemp.getString("nombre"));
-                        holder.tx_pecio_venta.setText(objtemp.getDouble("costo") + " $");
-                        break;
-                    case 2:
-                        holder.tx_alquiler.setText(objtemp.getString("nombre"));
-                        holder.tx_precio_alquiler.setText(objtemp.getDouble("costo") + " $");
-                        break;
-                    case 3:
-                        holder.tx_anticretico.setText(objtemp.getString("nombre"));
-                        holder.tx_pecio_anticretico.setText(objtemp.getDouble("costo") + " $");
-                        break;
-                }
+            if (obj.getDouble("costo_venta") != 0) {
+                holder.tx_venta.setText("Venta");
+                holder.tx_pecio_venta.setText(obj.getDouble("costo_venta") + " $");
             }
+            if (obj.getDouble("costo_alquiler") != 0) {
+                holder.tx_alquiler.setText("Alquiler");
+                holder.tx_precio_alquiler.setText(obj.getDouble("costo_alquiler") + " $");
+
+            }
+            if (obj.getDouble("costo_anticretico") != 0) {
+                holder.tx_anticretico.setText("Anticretico");
+                holder.tx_pecio_anticretico.setText(obj.getDouble("costo_anticretico") + " $");
+            }
+
+
             if (obj.has("cant_banhos")) {
                 holder.text_baños.setText(obj.getInt("cant_banhos") + " Baños");
             }
@@ -113,7 +110,7 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
                 public void onClick(View view) {
                     int id_casa = (int) view.getTag();
                     //Toast.makeText(contexto, "id" + sfs, Toast.LENGTH_SHORT).show();
-                    Intent intent  = new Intent(contexto,ComentarioActivity.class);
+                    Intent intent = new Intent(contexto, ComentarioActivity.class);
                     intent.putExtra("id_casa", id_casa);
                     contexto.startActivity(intent);
                 }

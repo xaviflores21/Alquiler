@@ -97,7 +97,7 @@ public class ExploreActivity extends Fragment implements ProductoAdapterClik {
         protected String doInBackground(Void... params) {
             Hashtable<String, String> parametros = new Hashtable<>();
             parametros.put("TokenAcceso", "servi12sis3");
-            parametros.put("evento", "getfull_casa");
+            parametros.put("evento", "getfull_casaOpti");
             String respuesta = "";
             try {
                 respuesta = HttpConnection.sendRequest(new StandarRequestConfiguration(getString(R.string.url_servlet_admin), MethodType.POST, parametros));

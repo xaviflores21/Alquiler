@@ -16,10 +16,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.xavi.alquiler.Services.Token;
+import com.xavi.alquiler.adapter.Adapter_comentario;
 import com.xavi.alquiler.clienteHTTP.HttpConnection;
 import com.xavi.alquiler.clienteHTTP.MethodType;
 import com.xavi.alquiler.clienteHTTP.StandarRequestConfiguration;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,6 +34,8 @@ public class ComentarioActivity extends AppCompatActivity implements View.OnClic
     private Button btn_enviar;
     private RecyclerView.LayoutManager layoutManager;
     private int id_casa, id_usuario;
+    private Adapter_comentario adapter;
+    private JSONArray arr;
 
 
     @Override
@@ -60,7 +64,7 @@ public class ComentarioActivity extends AppCompatActivity implements View.OnClic
             try {
                 id_usuario = (int) getUsr_log().get("id");
                 id_casa = getIntent().getIntExtra("id_casa", 0);
-               //     new Get_comentario(id_usuario).execute();
+                new Get_comentario(id_casa).execute();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -122,7 +126,19 @@ public class ComentarioActivity extends AppCompatActivity implements View.OnClic
             validar = false;
         }
         if (validar) {
-            new EnviarComentario(mensaje).execute();
+            JSONObject obj = new JSONObject();
+            try {
+                obj.put("comentario", mensaje);
+                arr.put(obj);
+                adapter = new Adapter_comentario(ComentarioActivity.this, arr);
+                lv.setAdapter(adapter);
+                //adapter.addItem(obj,adapter.getItemCount()+1);
+                //adapter.notifyDataSetChanged();
+                text_mensaje.setText("");
+                new EnviarComentario(mensaje).execute();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         } else {
             return;
         }
@@ -145,18 +161,18 @@ public class ComentarioActivity extends AppCompatActivity implements View.OnClic
             progreso.setIndeterminate(true);
             progreso.setTitle("Esperando Respuesta");
             progreso.setCancelable(false);
-            progreso.show();
+
         }
 
         @Override
         protected String doInBackground(Void... params) {
             Hashtable<String, String> param = new Hashtable<>();
-            param.put("evento", "comentario");
+            param.put("evento", "registrar_comentario");
             param.put("TokenAcceso", "servi12sis3");
             param.put("token", Token.currentToken);
             param.put("id_usuario", String.valueOf(id_usuario));
             param.put("id_casa", String.valueOf(id_casa));
-            param.put("mensaje", mensaje);
+            param.put("comentario", mensaje);
             String respuesta = HttpConnection.sendRequest(new StandarRequestConfiguration(getString(R.string.url_servlet_admin), MethodType.POST, param));
             return respuesta;
         }
@@ -175,7 +191,6 @@ public class ComentarioActivity extends AppCompatActivity implements View.OnClic
                         Toast.makeText(ComentarioActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(ComentarioActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
-
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -189,7 +204,6 @@ public class ComentarioActivity extends AppCompatActivity implements View.OnClic
 
         }
     }
-
 
 
     private class Get_comentario extends AsyncTask<Void, String, String> {
@@ -214,7 +228,7 @@ public class ComentarioActivity extends AppCompatActivity implements View.OnClic
         @Override
         protected String doInBackground(Void... params) {
             Hashtable<String, String> param = new Hashtable<>();
-            param.put("evento", "Get_comentario");
+            param.put("evento", "getbyidCasa_comentario");
             param.put("TokenAcceso", "servi12sis3");
             param.put("token", Token.currentToken);
             param.put("id_casa", String.valueOf(id_casa));
@@ -233,9 +247,13 @@ public class ComentarioActivity extends AppCompatActivity implements View.OnClic
                 try {
                     obj = new JSONObject(usr);
                     if (obj.getInt("estado") != 1) {
+
                         Toast.makeText(ComentarioActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(ComentarioActivity.this, obj.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                        arr = new JSONArray(obj.getString("resp"));
+                        adapter = new Adapter_comentario(ComentarioActivity.this, arr);
+                        lv.setAdapter(adapter);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

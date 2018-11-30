@@ -39,7 +39,7 @@ public class Adapter_comentario extends RecyclerView.Adapter<Adapter_comentario.
     public void onBindViewHolder( MyViewHolder holder, int i) {
         try {
             final JSONObject obj = objArray.getJSONObject(i);
-            holder.text_chat.setText(obj.getString("precio"));
+            holder.text_chat.setText(obj.getString("comentario"));
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -55,6 +55,14 @@ public class Adapter_comentario extends RecyclerView.Adapter<Adapter_comentario.
     public long getItemId(int i) {
         return 0;
     }
+
+    public void addItem(JSONObject obj, int i){
+        if(objArray != null){
+            objArray.put(obj);
+            notifyItemInserted(i);
+        }
+    }
+
 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {

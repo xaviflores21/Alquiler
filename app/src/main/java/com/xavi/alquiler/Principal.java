@@ -88,7 +88,7 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
             TextView text_nameMenu = slidingRootNav.getLayout().findViewById(R.id.text_nameMenu);
             try {
                 txtNombre.setText(getUsr_log().getString("usuario"));
-                text_nameMenu.setText(getUsr_log().getString("nombre"));
+                text_nameMenu.setText(getUsr_log().getString("nombre") + " " + getUsr_log().getString("apellidos"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -108,8 +108,10 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_home).commit();
         }
         if (position == Constant.POS_BUSCAR) {
-            fragment_buscar = new BuscarFrament();
-            getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_buscar).commit();
+            //fragment_buscar = new BuscarFrament();
+            //getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_buscar).commit();
+            Intent intent = new Intent(Principal.this, RegistroBusquedaActivity.class);
+            startActivity(intent);
         }
         if (position == Constant.POS_PUBLICAR) {
             Intent intent = new Intent(Principal.this, tipo_publicacion_Activity.class);
@@ -124,7 +126,14 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
             startActivity(intent);
         }
         if (position == Constant.POS_SALIR) {
-            finish();
+            SharedPreferences preferences = getSharedPreferences("myPref", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            //editor.putString("usr_log", obj.getString("resp"));
+            editor.remove("usr_log");
+            editor.commit();
+            //finish();
+            Intent inten = new Intent(Principal.this, SplashActivity.class);
+            startActivity(inten);
         }
         slidingRootNav.closeMenu();
     }
