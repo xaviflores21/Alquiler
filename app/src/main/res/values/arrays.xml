@@ -8,7 +8,7 @@
         <item>Favoritos</item>
         <item>Perfil</item>
         <item></item>
-        <item>Cerrar Sesion</item>
+        <item>Salir</item>
     </string-array>
 
     <array name="ld_activityScreenIcons">

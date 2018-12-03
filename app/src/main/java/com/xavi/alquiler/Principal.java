@@ -2,6 +2,8 @@ package com.xavi.alquiler;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.Paint;
 import android.support.v4.app.Fragment;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -15,8 +17,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
+import com.bumptech.glide.load.engine.Resource;
 import com.xavi.alquiler.R;
 import com.xavi.alquiler.Menu.DrawerAdapter;
 import com.xavi.alquiler.Menu.DrawerItem;
@@ -30,13 +34,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.List;
 
-public class Principal extends AppCompatActivity implements TabLayout.OnTabSelectedListener, DrawerAdapter.OnItemSelectedListener {
+public class Principal extends AppCompatActivity implements TabLayout.OnTabSelectedListener, DrawerAdapter.OnItemSelectedListener, View.OnClickListener {
 
     private SlidingRootNav slidingRootNav;
-
+    private DrawerAdapter drawadapter;
     private String[] screenTitles;
     private Drawable[] screenIcons;
+
+    private TextView txtNombre;
+    private TextView text_nameMenu;
 
     Fragment fragment_home = null;
     Fragment fragment_buscar = null;
@@ -66,7 +74,66 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
         screenIcons = loadScreenIcons();
         screenTitles = loadScreenTitles();
 
-        DrawerAdapter drawadapter = new DrawerAdapter(Arrays.asList(
+        crearListaMenus();
+
+        if (getUsr_log() != null) {
+            txtNombre = slidingRootNav.getLayout().findViewById(R.id.navtitle);
+            text_nameMenu = slidingRootNav.getLayout().findViewById(R.id.text_nameMenu);
+            try {
+                String[] array = getResources().getStringArray(R.array.ld_activityScreenTitles);
+                array[6] = "Cerrar Sesión";
+                screenTitles = array;
+                crearListaMenus();
+
+                txtNombre.setText(getUsr_log().getString("usuario"));
+                text_nameMenu.setText(getUsr_log().getString("nombre") + " " + getUsr_log().getString("apellidos"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else {
+            text_nameMenu = findViewById(R.id.text_nameMenu);
+            txtNombre = findViewById(R.id.navtitle);
+            text_nameMenu.setOnClickListener(this);
+            txtNombre.setOnClickListener(this);
+        }
+
+        fragment_home = new ExploreActivity();
+        getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_home).commit();
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.text_nameMenu:
+                Intent inten = new Intent(Principal.this, LoginActivity.class);
+                startActivity(inten);
+                break;
+            case R.id.navtitle:
+                Intent inten1 = new Intent(Principal.this, LoginActivity.class);
+                startActivity(inten1);
+                break;
+        }
+    }
+
+    public JSONObject getUsr_log() {
+        SharedPreferences preferencias = getSharedPreferences("myPref", MODE_PRIVATE);
+        String usr = preferencias.getString("usr_log", "");
+        if (usr.length() <= 0) {
+            return null;
+        } else {
+            try {
+                JSONObject usr_log = new JSONObject(usr);
+                return usr_log;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+    }
+
+    private void crearListaMenus() {
+        drawadapter = new DrawerAdapter(Arrays.asList(
                 createItemFor(Constant.POS_HOME).setChecked(true),
                 createItemFor(Constant.POS_BUSCAR),
                 createItemFor(Constant.POS_PUBLICAR),
@@ -81,25 +148,7 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
         list.setLayoutManager(new LinearLayoutManager(this));
         list.setAdapter(drawadapter);
         drawadapter.setSelected(Constant.POS_HOME);
-
-
-        if (getUsr_log() != null) {
-            TextView txtNombre = slidingRootNav.getLayout().findViewById(R.id.navtitle);
-            TextView text_nameMenu = slidingRootNav.getLayout().findViewById(R.id.text_nameMenu);
-            try {
-                txtNombre.setText(getUsr_log().getString("usuario"));
-                text_nameMenu.setText(getUsr_log().getString("nombre") + " " + getUsr_log().getString("apellidos"));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-
-
-        fragment_home = new ExploreActivity();
-        getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_home).commit();
-
     }
-
 
     @Override
     public void onItemSelected(int position) {
@@ -183,20 +232,5 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
 
     }
 
-    public JSONObject getUsr_log() {
-        SharedPreferences preferencias = getSharedPreferences("myPref", MODE_PRIVATE);
-        String usr = preferencias.getString("usr_log", "");
-        if (usr.length() <= 0) {
-            return null;
-        } else {
-            try {
-                JSONObject usr_log = new JSONObject(usr);
-                return usr_log;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-    }
 
 }
