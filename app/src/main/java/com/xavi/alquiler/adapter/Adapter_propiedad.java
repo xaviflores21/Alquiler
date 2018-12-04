@@ -27,7 +27,7 @@ public class Adapter_propiedad extends RecyclerView.Adapter<Adapter_propiedad.My
     private JSONObject obj_us;
     private ProductoAdapterClik listener;
 
-    public Adapter_propiedad(Context contexto, JSONArray lista, JSONObject obj , ProductoAdapterClik listener) {
+    public Adapter_propiedad(Context contexto, JSONArray lista, JSONObject obj, ProductoAdapterClik listener) {
         this.contexto = contexto;
         this.array = lista;
         this.obj_us = obj;
@@ -41,23 +41,23 @@ public class Adapter_propiedad extends RecyclerView.Adapter<Adapter_propiedad.My
         return vh;
     }
 
-               @Override
-            public void onBindViewHolder(final MyViewHolder holder, int i) {
-                try {
-                    final JSONObject obj = array.getJSONObject(i);
-                    holder.text_propiedad.setText(obj.getString("nombre"));
+    @Override
+    public void onBindViewHolder(final MyViewHolder holder, int i) {
+        try {
+            final JSONObject obj = array.getJSONObject(i);
+            holder.text_propiedad.setText(obj.getString("nombre"));
 
-                    holder.text_propiedad.setTag(obj.getInt("id"));
-                    //holder.text_propiedad.setTag(obj.getInt("id"));
-                    holder.text_propiedad.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            listener.onClick((int)view.getTag(),view);
-                        }
-                    });
+            holder.text_propiedad.setTag(obj.getInt("id"));
+            //holder.text_propiedad.setTag(obj.getInt("id"));
+            holder.text_propiedad.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onClick((int) view.getTag(), view);
+                }
+            });
 
 
-                } catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
@@ -72,7 +72,7 @@ public class Adapter_propiedad extends RecyclerView.Adapter<Adapter_propiedad.My
         return 0;
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         public TextView text_propiedad;
         public LinearLayout liner_propiedad;

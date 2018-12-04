@@ -3,7 +3,6 @@
 
     <string-array name="ld_activityScreenTitles">
         <item>Inicio</item>
-        <item>Buscar</item>
         <item>Publicar</item>
         <item>Favoritos</item>
         <item>Perfil</item>
@@ -13,7 +12,6 @@
 
     <array name="ld_activityScreenIcons">
         <item>@drawable/ic_home</item>
-        <item>@drawable/busqueda</item>
         <item>@drawable/add</item>
         <item>@drawable/favoritoss</item>
         <item>@drawable/icons8usuariodegeneroneutro24</item>

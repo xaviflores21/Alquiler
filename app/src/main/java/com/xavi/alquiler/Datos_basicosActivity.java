@@ -92,7 +92,7 @@ public class Datos_basicosActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String item = adapterView.getItemAtPosition(i).toString();
-                Str_spin1=item;
+                Str_spin1 = item;
             }
 
             @Override
@@ -105,7 +105,7 @@ public class Datos_basicosActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String item2 = adapterView.getItemAtPosition(i).toString();
-                Str_spin2=item2;
+                Str_spin2 = item2;
             }
 
             @Override

@@ -81,7 +81,7 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
             text_nameMenu = slidingRootNav.getLayout().findViewById(R.id.text_nameMenu);
             try {
                 String[] array = getResources().getStringArray(R.array.ld_activityScreenTitles);
-                array[6] = "Cerrar Sesión";
+                array[5] = "Cerrar Sesión";
                 screenTitles = array;
                 crearListaMenus();
 
@@ -135,7 +135,7 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
     private void crearListaMenus() {
         drawadapter = new DrawerAdapter(Arrays.asList(
                 createItemFor(Constant.POS_HOME).setChecked(true),
-                createItemFor(Constant.POS_BUSCAR),
+                //createItemFor(Constant.POS_BUSCAR),
                 createItemFor(Constant.POS_PUBLICAR),
                 createItemFor(Constant.POS_FAVORITOS),
                 createItemFor(Constant.POS_PERFIL),
@@ -156,12 +156,12 @@ public class Principal extends AppCompatActivity implements TabLayout.OnTabSelec
             fragment_home = new ExploreActivity();
             getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_home).commit();
         }
-        if (position == Constant.POS_BUSCAR) {
+        /*if (position == Constant.POS_BUSCAR) {
             //fragment_buscar = new BuscarFrament();
             //getSupportFragmentManager().beginTransaction().add(R.id.container, fragment_buscar).commit();
             Intent intent = new Intent(Principal.this, RegistroBusquedaActivity.class);
             startActivity(intent);
-        }
+        }*/
         if (position == Constant.POS_PUBLICAR) {
             Intent intent = new Intent(Principal.this, tipo_publicacion_Activity.class);
             startActivity(intent);

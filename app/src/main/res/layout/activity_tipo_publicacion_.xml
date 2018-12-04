@@ -4,30 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
-    android:background="@drawable/gradientamarillo2"
     tools:context=".tipo_publicacion_Activity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:title="Publicar"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp">
-    </android.support.v7.widget.Toolbar>
+        android:background="@color/colorPrimary"></android.support.v7.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1.4">
+        android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:text="Escoja su tipo de publicacion."
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="Seleccione el tipo de publicacion."
             android:textAlignment="center"
             android:textColor="#000"
             android:textSize="18dp" />
@@ -35,8 +32,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
 
@@ -49,9 +45,8 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="42dp"
             android:layout_marginBottom="24dp"
-            android:background="#99ffffff"
             android:drawableTop="@drawable/ic_buscar_casa_iconr_foreground"
-            android:text="Buscar inmueble."
+            android:text="Busco Inmueble."
             android:textAlignment="center"
             android:textColor="#000"
             android:textSize="12dp" />
@@ -60,8 +55,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -73,11 +67,9 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="42dp"
             android:layout_marginBottom="24dp"
-            android:background="#99ffffff"
             android:drawableTop="@drawable/ic_ofertar_casa_icon_foreground"
-            android:text="Ofertar inmueble."
+            android:text="Oferto Inmueble."
             android:textAlignment="center"
-
             android:textColor="#000"
             android:textSize="12dp" />
 

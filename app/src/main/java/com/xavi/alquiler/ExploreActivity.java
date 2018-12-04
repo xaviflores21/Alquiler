@@ -87,8 +87,7 @@ public class ExploreActivity extends Fragment implements ProductoAdapterClik {
             super.onPreExecute();
             progreso = new ProgressDialog(getActivity());
             progreso.setIndeterminate(true);
-            progreso.setTitle("Esperando Respuesta..");
-            progreso.setIcon(R.drawable.wait);
+            progreso.setTitle("Si el inmueble que buscas no esta en la lista, publica tu requerimiento y nosotros te haremos llegar una notificación.");
             progreso.setCancelable(false);
             progreso.show();
         }
