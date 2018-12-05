@@ -21,6 +21,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.gson.JsonObject;
 import com.xavi.alquiler.Listener.ProductoAdapterClik;
 import com.xavi.alquiler.R;
 import com.xavi.alquiler.Utiles.Contexto;
@@ -55,6 +56,7 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
     private LinearLayout liner_venta;
     private LinearLayout liner_alquiler;
     private LinearLayout liner_anticretico;
+    private LinearLayout liner_publicar_busqueda;
     private Button btn_registro;
     private Boolean Venta;
     private Boolean Alquiler;
@@ -88,19 +90,21 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
                 e.printStackTrace();
             }
         }
+
         //hace la peticion al servidor
         new get_propiedades().execute();
     }
 
     @Override
-    public void onClick(int id, View view) {
-
+    public void onClick(final int id, View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(PropiedadActivity.this);
         View vi = getLayoutInflater().inflate(R.layout.layout_showdialog_datos_basicos, null);
 
         liner_venta = vi.findViewById(R.id.liner_venta);
         liner_alquiler = vi.findViewById(R.id.liner_alquiler);
         liner_anticretico = vi.findViewById(R.id.liner_anticretico);
+        liner_publicar_busqueda = vi.findViewById(R.id.liner_publicar_busqueda);
+
         text_precioVenta = vi.findViewById(R.id.text_precioVenta);
         text_precioAlquiler = vi.findViewById(R.id.text_precioAlquiler);
         text_precioAnticretico = vi.findViewById(R.id.text_precioAnticretico);
@@ -108,6 +112,7 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
         text_descripcion = vi.findViewById(R.id.text_descripcion);
         btn_registro = vi.findViewById(R.id.btn_registro);
         textView_baño = vi.findViewById(R.id.tv_baño);
+
         textView_dormitorio = vi.findViewById(R.id.tv_dormitorio);
 
         String d = getIntent().getStringExtra("obj");
@@ -117,17 +122,22 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
                 Venta = obj.getBoolean("venta");
                 Alquiler = obj.getBoolean("alquiler");
                 Anticretico = obj.getBoolean("anticretico");
-                id_propiedad = obj.getString("id_propiedad");
+                id_propiedad = id + "";
                 tipo_public = obj.getInt("tipo_public");
-                if (Venta == true) {
-                    liner_venta.setVisibility(View.VISIBLE);
-                }
-                if (Alquiler == true) {
 
-                    liner_alquiler.setVisibility(View.VISIBLE);
-                }
-                if (Anticretico == true) {
-                    liner_anticretico.setVisibility(View.VISIBLE);
+                if (tipo_public == 1) {
+                    if (Venta == true) {
+                        liner_venta.setVisibility(vi.VISIBLE);
+                    }
+                    if (Alquiler == true) {
+
+                        liner_alquiler.setVisibility(vi.VISIBLE);
+                    }
+                    if (Anticretico == true) {
+                        liner_anticretico.setVisibility(vi.VISIBLE);
+                    }
+                } else if (tipo_public == 2) {
+                    liner_publicar_busqueda.setVisibility(vi.VISIBLE);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -162,6 +172,9 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
             }
         });
 
+        builder.setView(vi);
+        final AlertDialog dialogo = builder.create();
+        dialogo.show();
 
         btn_registro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,27 +186,10 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
                 }
             }
         });
-
-        builder.setView(vi);
-        final AlertDialog dialogo = builder.create();
-        dialogo.show();
-
-
-
-
-/*
-        Intent intent = new Intent(PropiedadActivity.this, Datos_basicosActivity.class);
-        try {
-            obj.put("id_propiedad", id);
-            intent.putExtra("obj", obj.toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        startActivity(intent);*/
     }
 
     private void validate() {
+
         Boolean validar = true;
         String precioVenta = text_precioVenta.getText().toString().trim();
         String precioAlquiler = text_precioAlquiler.getText().toString().trim();
@@ -269,6 +265,7 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
                 newObj.put("metros2", metros_propiedad);
                 newObj.put("descripcion", descripcion);
                 newObj.put("tipo_public", tipo_public);
+
                 intent.putExtra("obj", newObj.toString());
                 startActivity(intent);
             } catch (JSONException e) {

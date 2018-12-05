@@ -38,6 +38,7 @@
                     android:text="INGRESO"
                     android:textAlignment="center"
                     android:textSize="35dp"
+                    android:textColor="@color/colorVerdeOscuro"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -97,10 +98,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|right"
                     android:layout_weight="1"
-                    android:background="#03a9f4"
+                    android:background="@color/colorVerdeClaro"
                     android:text="Entrar"
                     android:textAlignment="center"
-                    android:textColor="#fff" />
+                    android:textColor="@color/colorBlack" />
             </LinearLayout>
 
             <LinearLayout
@@ -177,8 +178,8 @@
                         style="?android:textAppearanceSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Registrarme"
-                        android:textColor="#03a9f4"
+                        android:text="@string/subrayado2"
+                        android:textColor="@color/colorVerdeOscuro"
                         android:textStyle="bold" />
 
                 </LinearLayout>

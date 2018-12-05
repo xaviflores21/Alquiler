@@ -14,9 +14,10 @@
     </string>
 
     <string name="subrayado"><u>Iniciar Sessión</u></string>
+    <string name="subrayado2"><u>Registrarme</u></string>
 
 
-    <string name="url_servlet_admin">http://192.168.43.47:8080/serviCasas/admin/adminController</string>
+    <string name="url_servlet_admin">http://192.168.1.108:8080/serviCasas/admin/adminController</string>
     <string name="url_servlet_index">http://192.168.1.104:8080/movilesServisis/indexController</string>
     <string name="apikey">AIzaSyAxdWoqiMpucK4ZOf5M8JzQii8m1x9WrR4</string>
 

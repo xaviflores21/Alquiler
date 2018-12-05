@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 app:title="Registro"
-                app:titleTextColor="@color/colorAccent"
+                app:titleTextColor="@color/colorWhite"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="0dp"></android.support.v7.widget.Toolbar>
 
@@ -201,9 +201,9 @@
                         android:id="@+id/btn_registro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#03a9f4"
+                        android:background="@color/colorVerdeOscuro"
                         android:text="Registrar"
-                        android:textColor="#fff" />
+                        android:textColor="@color/colorBlack" />
 
                 </LinearLayout>
             </LinearLayout>

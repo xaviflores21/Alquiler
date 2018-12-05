@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 app:title="Bienvenidos a ServiCasas"
-                app:titleTextColor="@color/colorCeleste"
+                app:titleTextColor="@color/colorWhite"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="0dp">
 

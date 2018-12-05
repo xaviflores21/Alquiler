@@ -107,7 +107,7 @@ public class tipo_publicacion_Activity extends AppCompatActivity implements View
 
         if (valor == 2){
             text_Titulo.setText("¿Qué tipo de inmueble está buscando?");
-            text_Venta.setText("Venta?");
+            text_Venta.setText("Compra?");
             text_Alquiler.setText("Alquiler?");
             text_Anticretico.setText("Anticrético?");
         }else
