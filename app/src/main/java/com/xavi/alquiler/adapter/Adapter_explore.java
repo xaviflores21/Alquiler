@@ -168,9 +168,9 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
             text_dormitorio = v.findViewById(R.id.text_dormitorio);
             text_baños = v.findViewById(R.id.text_baños);
             text_metros = v.findViewById(R.id.text_metros);
-            liner_1 = v.findViewById(R.id.liner_1);
+            /*liner_1 = v.findViewById(R.id.liner_1);
             liner_2 = v.findViewById(R.id.liner_2);
-            liner_3 = v.findViewById(R.id.liner_3);
+            liner_3 = v.findViewById(R.id.liner_3);*/
             liner_favorito = v.findViewById(R.id.liner_favorito);
             liner_comentario = v.findViewById(R.id.liner_comentario);
 

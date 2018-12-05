@@ -4,11 +4,11 @@
     <color name="colorPrimary">#004d40</color>
     <color name="colorAccent">#000</color>
 
+    <color name="colorFondo">#fff</color>
+
     <color name="colorCeleste">#e1f5fe</color>
     <color name="colorVerdeClaro">#80cbc4</color>
     <color name="colorVerdeOscuro">#26a69a</color>
-    <color name="colorRojo">#d32f2f</color>
-    <color name="colorNegro">#9e9e9e</color>
 
     <color name="colorBlack">#000000</color>
     <color name="colorGris">#626262</color>

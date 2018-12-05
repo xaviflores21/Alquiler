@@ -93,7 +93,6 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".RegistroBusquedaActivity" />
         <activity android:name=".tipo_publicacion_Activity"></activity>
     </application>
 

@@ -17,7 +17,7 @@
     <string name="subrayado2"><u>Registrarme</u></string>
 
 
-    <string name="url_servlet_admin">http://192.168.1.108:8080/serviCasas/admin/adminController</string>
+    <string name="url_servlet_admin">http://192.168.2.20:8080/serviCasas/admin/adminController</string>
     <string name="url_servlet_index">http://192.168.1.104:8080/movilesServisis/indexController</string>
     <string name="apikey">AIzaSyAxdWoqiMpucK4ZOf5M8JzQii8m1x9WrR4</string>
 
@@ -60,6 +60,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="ImagenIcon">asdf</string>
 
 
 </resources>

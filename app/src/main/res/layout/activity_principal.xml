@@ -17,11 +17,11 @@
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+                android:id="@+id/toolbarPricipal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
-                app:title="Bienvenidos a ServiCasas"
+                app:title="ServiCasas"
                 app:titleTextColor="@color/colorWhite"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="0dp">

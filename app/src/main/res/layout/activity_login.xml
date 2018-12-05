@@ -12,7 +12,7 @@
         android:id="@+id/login_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorWhite">
+        android:background="@color/colorFondo">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,10 +34,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingTop="15dp"
+                    android:paddingTop="20dp"
                     android:text="INGRESO"
                     android:textAlignment="center"
-                    android:textSize="35dp"
+                    android:textSize="30dp"
                     android:textColor="@color/colorVerdeOscuro"
                     android:textStyle="bold" />
 
@@ -98,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|right"
                     android:layout_weight="1"
-                    android:background="@color/colorVerdeClaro"
+                    android:background="@color/colorVerdeOscuro"
                     android:text="Entrar"
                     android:textAlignment="center"
                     android:textColor="@color/colorBlack" />
