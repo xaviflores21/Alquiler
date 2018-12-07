@@ -125,7 +125,18 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
                 id_propiedad = id + "";
                 tipo_public = obj.getInt("tipo_public");
 
-                if (tipo_public == 1) {
+                if (Venta == true) {
+                    liner_venta.setVisibility(vi.VISIBLE);
+                }
+                if (Alquiler == true) {
+
+                    liner_alquiler.setVisibility(vi.VISIBLE);
+                }
+                if (Anticretico == true) {
+                    liner_anticretico.setVisibility(vi.VISIBLE);
+                }
+
+                /*if (tipo_public == 1) {
                     if (Venta == true) {
                         liner_venta.setVisibility(vi.VISIBLE);
                     }
@@ -138,7 +149,7 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
                     }
                 } else if (tipo_public == 2) {
                     liner_publicar_busqueda.setVisibility(vi.VISIBLE);
-                }
+                }*/
             } catch (JSONException e) {
                 e.printStackTrace();
             }
