@@ -54,9 +54,9 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
             JSONObject objtemp;
             String tipos = "";
             if (obj.getInt("tipo_public") == 1) {
-                holder.tipopublic.setText("OFERTO: " + obj.getJSONObject("tipo_propiedad").getString("nombre"));
+                holder.tipopublic.setText("Oferto: " + obj.getJSONObject("tipo_propiedad").getString("nombre"));
             } else if (obj.getInt("tipo_public") == 2) {
-                holder.tipopublic.setText("BUSCO: " + obj.getJSONObject("tipo_propiedad").getString("nombre"));
+                holder.tipopublic.setText("Busco: " + obj.getJSONObject("tipo_propiedad").getString("nombre"));
             }
             if (obj.getDouble("costo_venta") != 0) {
                 holder.tx_venta.setText("Venta");
@@ -68,20 +68,20 @@ public class Adapter_explore extends RecyclerView.Adapter<Adapter_explore.MyView
 
             }
             if (obj.getDouble("costo_anticretico") != 0) {
-                holder.tx_anticretico.setText("Anticretico");
+                holder.tx_anticretico.setText("Anticrético");
                 holder.tx_pecio_anticretico.setText(obj.getDouble("costo_anticretico") + " $");
             }
 
 
             if (obj.has("cant_banhos")) {
-                holder.text_baños.setText(obj.getInt("cant_banhos") + " Baños");
+                holder.text_baños.setText("Baños              " + obj.getInt("cant_banhos"));
             }
 
             if (obj.has("cant_dormitorios")) {
-                holder.text_dormitorio.setText(obj.getInt("cant_dormitorios") + " Dormitorios");
+                holder.text_dormitorio.setText("Dormitorios  " + obj.getInt("cant_dormitorios"));
             }
             if (obj.has("metros2")) {
-                holder.text_metros.setText(obj.getInt("metros2") + " M²");
+                holder.text_metros.setText("Mts²                 " + obj.getInt("metros2"));
             }
 
             holder.imag_explorer.setTag(obj.getInt("id"));

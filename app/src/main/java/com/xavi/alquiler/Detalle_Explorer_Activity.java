@@ -80,9 +80,9 @@ public class Detalle_Explorer_Activity extends AppCompatActivity implements View
         btn_agg_imagenes = findViewById(R.id.btn_agg_imagenes);
         btn_comentar.setOnClickListener(this);
         btn_agg_imagenes.setOnClickListener(this);
-        linerVenta = findViewById(R.id.linerVenta);
-        linerAlquiler = findViewById(R.id.linerAlquiler);
-        linerAnticretico = findViewById(R.id.linerAnticretico);
+        //linerVenta = findViewById(R.id.linerVenta);
+        //linerAlquiler = findViewById(R.id.linerAlquiler);
+        //linerAnticretico = findViewById(R.id.linerAnticretico);
 
 
         String d = getIntent().getStringExtra("obj");
@@ -212,23 +212,23 @@ public class Detalle_Explorer_Activity extends AppCompatActivity implements View
                             if (tipo == 1) {
                                 String nombre = objds.getString("nombre");
                                 String costo = objds.getString("costo");
-                                text_nombre1.setText("En " + nombre);
+                                text_nombre1.setText(nombre);
                                 text_precio1.setText(costo + " $");
-                                linerVenta.setVisibility(View.VISIBLE);
+                                //linerVenta.setVisibility(View.VISIBLE);
                             }
                             if (tipo == 2) {
                                 String nombre = objds.getString("nombre");
                                 String costo = objds.getString("costo");
-                                text_nombre2.setText("En " + nombre);
+                                text_nombre2.setText(nombre);
                                 text_precio2.setText(costo + " $");
-                                linerAlquiler.setVisibility(View.VISIBLE);
+                                //linerAlquiler.setVisibility(View.VISIBLE);
                             }
                             if (tipo == 3) {
                                 String nombre = objds.getString("nombre");
                                 String costo = objds.getString("costo");
-                                text_nombre3.setText("En " + nombre);
+                                text_nombre3.setText(nombre);
                                 text_precio3.setText(costo + " $");
-                                linerAnticretico.setVisibility(View.VISIBLE);
+                                //linerAnticretico.setVisibility(View.VISIBLE);
                             }
                         }
 
@@ -240,8 +240,8 @@ public class Detalle_Explorer_Activity extends AppCompatActivity implements View
 
                         text_descripcion.setText(descripcion);
                         text_direccion.setText(direccion);
-                        text_dormitorio.setText("Dormitorios: " + dormitorio);
-                        text_banho.setText("Baños: " + banhos);
+                        text_dormitorio.setText(dormitorio);
+                        text_banho.setText(banhos);
                         text_m2.setText(metros2);
 
 

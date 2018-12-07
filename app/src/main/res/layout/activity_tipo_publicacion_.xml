@@ -9,7 +9,7 @@
     tools:context=".tipo_publicacion_Activity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar3"
+        android:id="@+id/toolbarTipoPublicacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
@@ -33,12 +33,14 @@
             android:layout_marginStart="42dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="42dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="20dp"
+            android:paddingBottom="10dp"
             android:drawableTop="@drawable/ic_buscar_casa_iconr_foreground"
+            android:background="@color/colorPrimaryDark"
             android:text="Busco Inmueble."
             android:textAlignment="center"
-            android:textColor="#000"
-            android:textSize="20dp" />
+            android:textColor="@color/colorCeleste"
+            android:textSize="18dp" />
 
     </LinearLayout>
 
@@ -55,12 +57,14 @@
             android:layout_marginStart="42dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="42dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="20dp"
+            android:paddingBottom="10dp"
             android:drawableTop="@drawable/ic_ofertar_casa_icon_foreground"
             android:text="Oferto Inmueble."
             android:textAlignment="center"
-            android:textColor="#000"
-            android:textSize="20dp" />
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/colorWhite"
+            android:textSize="18dp" />
 
     </LinearLayout>
 </LinearLayout>

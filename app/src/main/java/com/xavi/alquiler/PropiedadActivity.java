@@ -74,7 +74,7 @@ public class PropiedadActivity extends AppCompatActivity implements ProductoAdap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_propiedad);
 
-        Toolbar toolbar = findViewById(R.id.toolbar3);
+        Toolbar toolbar = findViewById(R.id.toolbarTipoPropiedad);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

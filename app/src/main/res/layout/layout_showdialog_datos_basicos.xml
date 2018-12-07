@@ -267,9 +267,10 @@
                     android:id="@+id/btn_registro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#03a9f4"
+                    android:background="@color/colorVerdeOscuro"
                     android:text="Continuar"
                     android:textColor="@color/colorWhite"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
             </LinearLayout>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Detalle_Explorer_Activity">
 
@@ -12,11 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        app:title="Detalle"
-        app:titleTextColor="@color/colorBlack"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp">
-    </android.support.v7.widget.Toolbar>
+        app:title="Ficha Técnica"
+        app:titleTextColor="@color/colorWhite"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp"></android.support.v7.widget.Toolbar>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,7 +24,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:background="@color/colorVerdeOscuro"
             android:orientation="vertical">
 
             <LinearLayout
@@ -36,22 +35,114 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/colorWhite"
                     android:src="@mipmap/logocasa" />
 
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:background="@color/colorWhite"
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text_nombre1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Venta"
+                            android:textColor="@color/colorGris"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:id="@+id/text_precio1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorGris"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text_nombre2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Alquiler"
+                            android:textColor="@color/colorGris"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:id="@+id/text_precio2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorGris"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text_nombre3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Anticretico"
+                            android:textColor="@color/colorGris"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:id="@+id/text_precio3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorGris"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--<LinearLayout
                     android:id="@+id/linerVenta"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:visibility="gone"
                     android:padding="5dp">
 
                     <TextView
@@ -123,7 +214,7 @@
                         android:gravity="left"
                         android:text="Precio"
                         android:textSize="18dp" />
-                </LinearLayout>
+                </LinearLayout>-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -134,12 +225,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
                         android:layout_marginBottom="10dp"
-                        android:text="Ficha Técnica" />
+                        android:text="@string/subrayado4" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginBottom="-10dp"
                         android:orientation="vertical"
                         android:padding="10dp">
 
@@ -151,21 +244,19 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="Dormitorios:" />
+
+                            <TextView
                                 android:id="@+id/text_dormitorio"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:text="Dormitorio" />
 
-                            <TextView
-                                android:id="@+id/text_banho"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:text="Baño" />
-
                         </LinearLayout>
-
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -175,15 +266,38 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="200dp"
                                 android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="Baños: :" />
+
+                            <TextView
+                                android:id="@+id/text_banho"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="Baño" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:paddingEnd="15dp"
-                                android:text="Contruidos M²: " />
+                                android:text="Mts²: " />
 
                             <TextView
                                 android:id="@+id/text_m2"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:text="M2" />
 
                         </LinearLayout>
@@ -196,8 +310,9 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="200dp"
                                 android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:paddingEnd="15dp"
                                 android:text="Descripcion:" />
 
@@ -205,6 +320,7 @@
                                 android:id="@+id/text_descripcion"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:inputType="textMultiLine"
                                 android:text="Descripcion" />
 
@@ -218,8 +334,9 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="200dp"
                                 android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:paddingEnd="15dp"
                                 android:text="Direccion: " />
 
@@ -227,11 +344,11 @@
                                 android:id="@+id/text_direccion"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:inputType="textMultiLine"
                                 android:text="Direccion" />
 
                         </LinearLayout>
-
 
                     </LinearLayout>
 
@@ -240,31 +357,32 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <TextView
+                    <Button
+                        android:id="@+id/btn_agg_imagenes"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="UBICACION" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorVerdeOscuro"
+                        android:text="IMAGENES"
+                        android:textColor="@color/colorCeleste" />
 
                     <Button
                         android:id="@+id/btn_comentar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="COMENTAR" />
-
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorVerdeOscuro"
+                        android:drawableRight="@drawable/colaborated"
+                        android:text="comentario"
+                        android:textColor="@color/colorCeleste" />
 
                 </LinearLayout>
-                <Button
-                    android:id="@+id/btn_agg_imagenes"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="IMAGENES" />
+
+
             </LinearLayout>
 
         </LinearLayout>

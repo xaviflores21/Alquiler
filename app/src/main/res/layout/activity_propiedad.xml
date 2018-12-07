@@ -9,11 +9,12 @@
     tools:context="com.xavi.alquiler.PropiedadActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar3"
+        android:id="@+id/toolbarTipoPropiedad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         app:title="Tipo de Inmueble"
+        app:titleTextColor="@color/colorWhite"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp">
     </android.support.v7.widget.Toolbar>

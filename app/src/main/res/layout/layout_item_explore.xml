@@ -37,143 +37,153 @@
                     android:id="@+id/tipopublic"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="-6dp"
                     android:layout_weight="1"
-                    android:paddingStart="15dp"
-                    android:text="Busco"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-
+                    android:text="@string/subrayado3"
+                    android:textColor="@color/colorVerdeOscuro"
+                    android:textSize="18dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="5dp">
-
-                    <TextView
-                        android:id="@+id/text_dormitorio"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="0 dormitorios"
-                        android:background="@color/colorVerdeOscuro"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/text_baños"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="0 Baños"
-                        android:background="@color/colorVerdeOscuro"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/text_metros"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="0 m2"
-                        android:background="@color/colorVerdeOscuro"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="15dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="5dp">
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/colorCeleste"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
 
                         <TextView
-                            android:id="@+id/tx_venta"
+                            android:id="@+id/text_dormitorio"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:background="@color/colorVerdeOscuro"
                             android:gravity="center"
-                            android:text=""
-                            android:textColor="@color/colorGris"
+                            android:text="0 dormitorios"
+                            android:textColor="@color/colorWhite"
                             android:textSize="15dp" />
 
                         <TextView
-                            android:id="@+id/tx_pecio_venta"
+                            android:id="@+id/text_baños"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:background="@color/colorVerdeOscuro"
                             android:gravity="center"
-                            android:text=""
-                            android:textColor="@color/colorGris"
+                            android:text="0 Baños"
+                            android:textColor="@color/colorWhite"
                             android:textSize="15dp" />
+
+                        <TextView
+                            android:id="@+id/text_metros"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@color/colorVerdeOscuro"
+                            android:gravity="center"
+                            android:text="0 m2"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="15dp" />
+
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/colorCeleste"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        android:layout_marginTop="-5dp">
 
-                        <TextView
-                            android:id="@+id/tx_alquiler"
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:gravity="center"
-                            android:text=""
-                            android:textColor="@color/colorGris"
-                            android:textSize="15dp" />
+                            android:background="@color/colorCeleste"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/tx_precio_alquiler"
+                            <TextView
+                                android:id="@+id/tx_venta"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text=""
+                                android:textColor="@color/colorGris"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:id="@+id/tx_pecio_venta"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text=""
+                                android:textColor="@color/colorGris"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:gravity="center"
-                            android:text=""
-                            android:textColor="@color/colorGris"
-                            android:textSize="15dp" />
-                    </LinearLayout>
+                            android:background="@color/colorCeleste"
+                            android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/colorCeleste"
-                        android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tx_alquiler"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text=""
+                                android:textColor="@color/colorGris"
+                                android:textSize="15dp" />
 
-                        <TextView
-                            android:id="@+id/tx_anticretico"
+                            <TextView
+                                android:id="@+id/tx_precio_alquiler"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text=""
+                                android:textColor="@color/colorGris"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:gravity="center"
-                            android:text=""
-                            android:textColor="@color/colorGris"
-                            android:textSize="15dp" />
+                            android:background="@color/colorCeleste"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/tx_pecio_anticretico"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text=""
-                            android:textColor="@color/colorGris"
-                            android:textSize="15dp" />
+                            <TextView
+                                android:id="@+id/tx_anticretico"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text=""
+                                android:textColor="@color/colorGris"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:id="@+id/tx_pecio_anticretico"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text=""
+                                android:textColor="@color/colorGris"
+                                android:textSize="15dp" />
+                        </LinearLayout>
                     </LinearLayout>
 
 
@@ -183,7 +193,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:background="#26a69a">
